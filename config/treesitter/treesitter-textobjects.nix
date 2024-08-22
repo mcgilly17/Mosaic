@@ -214,27 +214,4 @@
       };
     };
   };
-  plugins.which-key.settings.spec = [
-    {
-      __unkeyed-1 = "<leader>cs";
-      mode = [
-        "n"
-      ];
-      group = "+swap";
-    }
-    {
-      __unkeyed-1 = "<leader>csn";
-      mode = [
-        "n"
-      ];
-      group = "+next";
-    }
-    {
-      __unkeyed-1 = "<leader>csp";
-      mode = [
-        "n"
-      ];
-      group = "+previous";
-    }
-  ];
 }

@@ -49,6 +49,7 @@
             "v"
           ];
           group = "+markdown";
+          icon = "";
         }
 
         {
@@ -62,10 +63,17 @@
           mode = "n";
           group = "+search";
         }
+
+        {
+          __unkeyed-1 = "<leader>S";
+          mode = "n";
+          group = "+surround";
+          icon = "";
+        }
         {
           __unkeyed-1 = "<leader><Tab>";
           mode = "n";
-          group = "+tab";
+          group = "+tabs";
         }
 
         {
@@ -74,6 +82,13 @@
             "n"
           ];
           group = "+test";
+        }
+        {
+          __unkeyed-1 = "<leader>T";
+          mode = [
+            "n"
+          ];
+          group = "+trouble";
         }
 
         {
@@ -88,6 +103,28 @@
           group = "+windows";
         }
 
+        # Code Configs
+        {
+          __unkeyed-1 = "<leader>cs";
+          mode = [
+            "n"
+          ];
+          group = "+swap";
+        }
+        {
+          __unkeyed-1 = "<leader>csn";
+          mode = [
+            "n"
+          ];
+          group = "+next";
+        }
+        {
+          __unkeyed-1 = "<leader>csp";
+          mode = [
+            "n"
+          ];
+          group = "+previous";
+        }
         # Harpoon Configs
         {
           __unkeyed-1 = "<leader>h";
@@ -152,16 +189,25 @@
           group = "+fold";
         }
 
-        # Code Configs
+        # LSP Configs
         {
-          __unkeyed-1 = "<leader>cg";
+          __unkeyed-1 = "<leader>l";
+          mode = [
+            "n"
+            "v"
+          ];
+          group = "+LSP";
+          icon = "󰬓";
+        }
+        {
+          __unkeyed-1 = "<leader>lg";
           mode = [
             "n"
           ];
           group = "GoTo";
         }
         {
-          __unkeyed-1 = "<leader>cd";
+          __unkeyed-1 = "<leader>ld";
           mode = [
             "n"
           ];

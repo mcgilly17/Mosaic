@@ -5,11 +5,17 @@
 }: {
   imports = [
     # Base Configs
-    ./keymaps.nix
     ./sets.nix
     ./colorschemes.nix
-    #
-    # Plugins
+    ./keymaps
+    ./languages
+    ./lsp
+    ./markdown
+    ./snippets
+    ./treesitter
+    ./ui
+
+    # Other Plugins
     ./plugins
   ];
 
