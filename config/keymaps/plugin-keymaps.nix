@@ -121,7 +121,7 @@ _: {
     */
     {
       mode = "n";
-      key = "<leaderTx";
+      key = "<leaderT";
       action = "+diagnostics/quickfix";
     }
     {

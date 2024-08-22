@@ -28,6 +28,15 @@
           group = "+debug";
         }
         {
+          __unkeyed-1 = "<leader>l";
+          mode = [
+            "n"
+            "v"
+          ];
+          group = "+LSP";
+          icon = "󰬓";
+        }
+        {
           __unkeyed-1 = "<leader>f";
           mode = "n";
           group = "+find/file";
@@ -139,21 +148,28 @@
           mode = [
             "n"
           ];
-          group = "Add file to Harpoon";
+          desc = "Add file to Harpoon";
+        }
+        {
+          __unkeyed = "<leader>he";
+          mode = [
+            "n"
+          ];
+          desc = "QuickMenu";
         }
         {
           __unkeyed-1 = "<leader>h1";
           mode = [
             "n"
           ];
-          group = "Harpoon File 1";
+          desc = "Harpoon File 1";
         }
         {
           __unkeyed-1 = "<leader>h2";
           mode = [
             "n"
           ];
-          group = "Harpoon File 2";
+          desc = "Harpoon File 2";
         }
         {
           __unkeyed-1 = "<leader>h3";
@@ -167,7 +183,7 @@
           mode = [
             "n"
           ];
-          group = "Harpoon File 4";
+          desc = "Harpoon File 4";
         }
 
         # Markdown Configs
@@ -190,29 +206,6 @@
         }
 
         # LSP Configs
-        {
-          __unkeyed-1 = "<leader>l";
-          mode = [
-            "n"
-            "v"
-          ];
-          group = "+LSP";
-          icon = "󰬓";
-        }
-        {
-          __unkeyed-1 = "<leader>lg";
-          mode = [
-            "n"
-          ];
-          group = "GoTo";
-        }
-        {
-          __unkeyed-1 = "<leader>ld";
-          mode = [
-            "n"
-          ];
-          group = "Diagnostics";
-        }
       ];
       win = {
         border = "none";
