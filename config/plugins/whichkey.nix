@@ -7,6 +7,7 @@
         group = "+";
         separator = "➜"; # ➜
       };
+      triggersNoWait = ["<leader>"];
       sort = ["alphanum"];
       spec = [
         # Top Level Configs

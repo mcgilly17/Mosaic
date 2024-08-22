@@ -72,7 +72,7 @@ _: {
     colorcolumn = "120";
 
     # Reduce which-key timeout to 10ms
-    # timeoutlen = 10;
+    timeoutlen = 100;
 
     # Set encoding type
     encoding = "utf-8";
