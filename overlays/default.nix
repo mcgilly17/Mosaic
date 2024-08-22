@@ -13,9 +13,6 @@
   # You can change versions, add patches, set compilation flags, anything really.
   # https://nixos.wiki/wiki/Overlays
   modifications = final: prev: {
-    # example = prev.example.overrideAttrs (oldAttrs: let ... in {
-    # ...
-    # });
     vimPlugins =
       prev.vimPlugins
       // {
@@ -29,10 +26,6 @@
           };
         });
       };
-
-    # NOTE: Cant get this to work as the cargoHash is still set to the 0.40.1 versions
-    # and there isnt a new one yet. If anyone understands how to overcome this, please
-    # let me know!
 
     # TODO: remove after https://github.com/NixOS/nixpkgs/pull/335559 is available in nixos-unstable
     vscode-langservers-extracted = prev.vscode-langservers-extracted.overrideAttrs {
