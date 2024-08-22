@@ -5,13 +5,16 @@
 }: {
   imports = [
     # Base Configs
-    ./sets.nix
     ./colorschemes.nix
+    ./completion
+    ./git
     ./keymaps
     ./languages
     ./lsp
     ./markdown
+    ./pluginmanagers
     ./snippets
+    ./sets.nix
     ./treesitter
     ./ui
 
