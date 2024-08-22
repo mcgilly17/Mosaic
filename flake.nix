@@ -14,11 +14,14 @@
   };
 
   outputs = {
+    self,
     nixpkgs,
     nixvim,
     flake-parts,
     ...
-  } @ inputs:
+  } @ inputs: let
+    inherit (self) outputs;
+  in
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = [
         "x86_64-linux"
@@ -34,6 +37,8 @@
         ...
       }: let
         inherit (nixpkgs) lib;
+
+        overlays = import ./overlays {inherit inputs outputs;};
         myLibs = import ./lib {inherit lib;};
         nixvimLib = nixvim.lib.${system};
         nixvim' = nixvim.legacyPackages.${system};
@@ -47,6 +52,10 @@
         };
         nvim = nixvim'.makeNixvimWithModule nixvimModule;
       in {
+        _module.args.pkgs = import inputs.nixpkgs {
+          inherit system;
+          overlays = builtins.attrValues overlays;
+        };
         checks = {
           # Run `nix flake check .` to verify that your config is not broken
           default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
