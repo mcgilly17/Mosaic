@@ -12,6 +12,13 @@
       spec = [
         # Top Level Configs
         {
+          __unkeyed-1 = "<leader>b";
+          mode = [
+            "n"
+          ];
+          group = "+buffers";
+        }
+        {
           __unkeyed-1 = "<leader>c";
           mode = [
             "n"

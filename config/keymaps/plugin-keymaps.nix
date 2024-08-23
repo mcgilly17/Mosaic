@@ -162,7 +162,7 @@ _: {
     }
     /*
     =============================================
-    =          Code (Conform, TSTools)          =
+    =       Code (Conform, TSTools, Spectre)    =
     =============================================
     */
 
@@ -176,6 +176,14 @@ _: {
       };
     }
 
+    {
+      mode = "n";
+      key = "<leader>cf";
+      action = "<cmd>Spectre<cr>";
+      options = {
+        desc = "Find / Replace";
+      };
+    }
     {
       mode = "v";
       key = "<leader>cF";
