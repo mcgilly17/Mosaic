@@ -238,6 +238,48 @@ _: {
       };
     }
 
+    # Resize window with Ctrl + arrow keys
+    {
+      action = "<cmd>resize +4<CR>";
+      key = "<C-Up>";
+      mode = "n";
+      options = {
+        noremap = true;
+        silent = true;
+        desc = "Increase window height";
+      };
+    }
+    {
+      action = "<cmd>resize -4<CR>";
+      key = "<C-Down>";
+      mode = "n";
+      options = {
+        noremap = true;
+        silent = true;
+        desc = "Decrease window height";
+      };
+    }
+    {
+      action = "<cmd>vertical resize +4<CR>";
+      key = "<C-Left>";
+      mode = "n";
+      options = {
+        noremap = true;
+        silent = true;
+        desc = "Increase window width";
+      };
+    }
+    {
+      action = "<cmd>vertical resize -4<CR>";
+      key = "<C-Right>";
+      mode = "n";
+      options = {
+        noremap = true;
+        silent = true;
+        desc = "Decrease window width";
+      };
+    }
+
     /*
     =============================================
     =               Quit / Sessions             =
@@ -340,7 +382,7 @@ _: {
       action = ":m '>+1<CR>gv=gv";
       options = {
         silent = true;
-        desc = "Move up when line is highlighted";
+        desc = "Move line up";
       };
     }
 
@@ -350,7 +392,7 @@ _: {
       action = ":m '<-2<CR>gv=gv";
       options = {
         silent = true;
-        desc = "Move down when line is highlighted";
+        desc = "Move line down";
       };
     }
 

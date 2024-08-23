@@ -1,11 +1,12 @@
-{
+{pkgs, ...}: {
   plugins.lualine = {
-    enable = true;
-    alwaysDivideMiddle = true;
-    globalstatus = true;
+    enable = pkgs.lib.mkDefault true;
+    globalstatus = pkgs.lib.mkDefault true;
+    disabledFiletypes.statusline = [
+      "alpha"
+    ];
     ignoreFocus = ["neo-tree"];
     extensions = ["fzf"];
-    theme = "auto";
     componentSeparators = {
       left = "|";
       right = "|";
@@ -15,7 +16,15 @@
       right = ""; #  █
     };
     sections = {
-      lualine_a = ["mode"];
+      lualine_a = [
+        {
+          name = "mode";
+          separator = {
+            left = "";
+          };
+          padding = 2;
+        }
+      ];
       lualine_b = [
         {
           name = "branch";
@@ -27,7 +36,15 @@
       lualine_c = ["filename"];
       lualine_x = ["filetype"];
       lualine_y = ["progress"];
-      lualine_z = [''" " .. os.date("%R")''];
+      lualine_z = [
+        {
+          name = ''" " .. os.date("%R")'';
+          separator = {
+            right = "";
+          };
+          padding = 2;
+        }
+      ];
     };
   };
 }
