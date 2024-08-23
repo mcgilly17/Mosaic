@@ -1,5 +1,5 @@
 {
-  description = "Mosaic is a nixvim configuration";
+  description = "Mosaic is a custom config for NixVim";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -21,6 +21,19 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
+
+    overlays = import ./overlays {inherit inputs outputs;};
+
+    mkPkgs = system:
+      import nixpkgs {
+        inherit system;
+
+        overlays = builtins.attrValues overlays;
+
+        config = {
+          allowUnfree = true;
+        };
+      };
   in
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = [
@@ -30,40 +43,45 @@
         "aarch64-darwin"
       ];
 
+      imports = [
+        inputs.flake-parts.flakeModules.easyOverlay
+      ];
+
       perSystem = {
         self,
+        config,
         pkgs,
         system,
         ...
       }: let
         inherit (nixpkgs) lib;
 
-        overlays = import ./overlays {inherit inputs outputs;};
         myLibs = import ./lib {inherit lib;};
+
         nixvimLib = nixvim.lib.${system};
         nixvim' = nixvim.legacyPackages.${system};
         nixvimModule = {
-          inherit pkgs;
+          pkgs = mkPkgs system;
           module = import ./config; # import the module directly
           # You can use `extraSpecialArgs` to pass additional arguments to your module files
           extraSpecialArgs = {
             inherit self inputs myLibs;
           };
         };
-        nvim = nixvim'.makeNixvimWithModule nixvimModule;
+
+        mosaic = nixvim'.makeNixvimWithModule nixvimModule;
       in {
-        _module.args.pkgs = import inputs.nixpkgs {
-          inherit system;
-          overlays = builtins.attrValues overlays;
-        };
         checks = {
-          # Run `nix flake check .` to verify that your config is not broken
           default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
         };
 
         packages = {
-          # Lets you run `nix run .` to start nixvim
-          default = nvim;
+          inherit mosaic;
+          default = mosaic;
+        };
+
+        overlayAttrs = {
+          inherit (config.packages) mosaic;
         };
       };
     };
