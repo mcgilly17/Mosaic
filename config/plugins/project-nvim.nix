@@ -1,6 +1,6 @@
-{
+{pkgs, ...}: {
   plugins.project-nvim = {
-    enable = true;
-    enableTelescope = true;
+    enable = pkgs.lib.mkDefault true;
+    enableTelescope = pkgs.lib.mkDefault true;
   };
 }

@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   plugins.lint = {
-    enable = true;
+    enable = pkgs.lib.mkDefault true;
     lintersByFt = {
       nix = ["statix"];
       lua = ["selene"];

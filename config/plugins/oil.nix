@@ -1,6 +1,6 @@
-{
+{pkgs, ...}: {
   plugins.oil = {
-    enable = true;
+    enable = pkgs.lib.mkDefault true;
     settings = {
       useDefaultKeymaps = true;
       deleteToTrash = true;

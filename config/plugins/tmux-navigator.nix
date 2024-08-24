@@ -1,5 +1,5 @@
-{
+{pkgs, ...}: {
   plugins.tmux-navigator = {
-    enable = true;
+    enable = pkgs.lib.mkDefault true;
   };
 }

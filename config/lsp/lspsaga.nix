@@ -1,6 +1,6 @@
-{
+{pkgs, ...}: {
   plugins.lspsaga = {
-    enable = true;
+    enable = pkgs.lib.mkDefault true;
     beacon = {
       enable = true;
     };

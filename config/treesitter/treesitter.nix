@@ -1,6 +1,6 @@
-{
+{pkgs, ...}: {
   plugins.treesitter = {
-    enable = true;
+    enable = pkgs.lib.mkDefault true;
     settings = {
       highlight = {
         enable = true;
@@ -29,7 +29,7 @@
         "query"
       ];
     };
-    folding = true;
-    nixvimInjections = true;
+    folding = pkgs.lib.mkDefault true;
+    nixvimInjections = pkgs.lib.mkDefault true;
   };
 }

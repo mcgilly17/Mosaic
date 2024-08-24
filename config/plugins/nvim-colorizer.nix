@@ -1,5 +1,5 @@
-{
+{pkgs, ...}: {
   plugins.nvim-colorizer = {
-    enable = true;
+    enable = pkgs.lib.mkDefault true;
   };
 }

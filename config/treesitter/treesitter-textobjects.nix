@@ -1,6 +1,6 @@
-{
+{pkgs, ...}: {
   plugins.treesitter-textobjects = {
-    enable = true;
+    enable = pkgs.lib.mkDefault true;
     select = {
       enable = true;
       lookahead = true;
@@ -109,8 +109,8 @@
       };
     };
     move = {
-      enable = true;
-      setJumps = true; # whether to set jumps in the jumplist
+      enable = pkgs.lib.mkDefault true;
+      setJumps = pkgs.lib.mkDefault true; # whether to set jumps in the jumplist
       gotoNextStart = {
         "]f" = {
           query = "@call.outer";
@@ -201,7 +201,7 @@
       };
     };
     swap = {
-      enable = true;
+      enable = pkgs.lib.mkDefault true;
       swapNext = {
         "<leader>csna" = "@parameter.inner"; # swap parameters/argument with next
         "<leader>csn:" = "@property.outer"; # swap object property with next

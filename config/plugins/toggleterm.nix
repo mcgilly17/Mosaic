@@ -1,6 +1,6 @@
-{
+{pkgs, ...}: {
   plugins.toggleterm = {
-    enable = true;
+    enable = pkgs.lib.mkDefault true;
     settings = {
       size = ''
         function(term)

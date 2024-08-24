@@ -1,6 +1,6 @@
-{
+{pkgs, ...}: {
   plugins.which-key = {
-    enable = true;
+    enable = pkgs.lib.mkDefault true;
     settings = {
       icons = {
         breadcrumb = "»";

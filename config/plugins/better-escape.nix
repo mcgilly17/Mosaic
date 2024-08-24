@@ -1,6 +1,6 @@
-{
+{pkgs, ...}: {
   plugins.better-escape = {
-    enable = true;
+    enable = pkgs.lib.mkDefault true;
     settings = {
       timeout = 200;
     };

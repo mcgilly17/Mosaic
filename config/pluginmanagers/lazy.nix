@@ -1,5 +1,5 @@
 {pkgs, ...}: {
   plugins.lazy = {
-    enable = true;
+    enable = pkgs.lib.mkDefault true;
   };
 }

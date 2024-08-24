@@ -1,5 +1,5 @@
-{
+{pkgs, ...}: {
   plugins.persistence = {
-    enable = true;
+    enable = pkgs.lib.mkDefault true;
   };
 }

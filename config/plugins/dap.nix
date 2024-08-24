@@ -1,6 +1,6 @@
-{
+{pkgs, ...}: {
   plugins.dap = {
-    enable = true;
+    enable = pkgs.lib.mkDefault true;
     signs = {
       dapBreakpoint = {
         text = "●";
