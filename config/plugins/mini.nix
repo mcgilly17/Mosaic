@@ -1,6 +1,6 @@
-{
+{pkgs, ...}: {
   plugins.mini = {
-    enable = true;
+    enable = pkgs.lib.mkDefault true;
     modules = {
       comment = {
         options = {

@@ -601,5 +601,15 @@ _: {
     =                   Misc                    =
     =============================================
     */
+    {
+      action = "<cmd>nohl<CR>";
+      key = "<C-n>";
+      mode = "n";
+      options = {
+        noremap = true;
+        silent = true;
+        desc = "Clear search highlight";
+      };
+    }
   ];
 }

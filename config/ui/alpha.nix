@@ -1,6 +1,6 @@
-{
+{pkgs, ...}: {
   plugins.alpha = {
-    enable = true;
+    enable = pkgs.lib.mkDefault true;
     theme = null;
     iconsEnabled = true;
     layout = let

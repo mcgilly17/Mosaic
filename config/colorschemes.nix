@@ -1,8 +1,8 @@
-_: {
+{pkgs, ...}: {
   colorschemes = {
     catppuccin = {
-      enable = true;
-      settings = {
+      enable = pkgs.lib.mkDefault true;
+      settings = pkgs.lib.mkDefault {
         background = {
           light = "macchiato";
           dark = "mocha";

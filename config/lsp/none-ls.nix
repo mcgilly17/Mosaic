@@ -1,6 +1,6 @@
-{
+{pkgs, ...}: {
   plugins.none-ls = {
-    enable = false;
+    enable = pkgs.lib.mkDefault false;
     settings = {
       enableLspFormat = false;
       updateInInsert = false;

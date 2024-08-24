@@ -1,5 +1,5 @@
-{
+{pkgs, ...}: {
   plugins.todo-comments = {
-    enable = true;
+    enable = pkgs.lib.mkDefault true;
   };
 }

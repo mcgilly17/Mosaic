@@ -1,19 +1,18 @@
-{
+{pkgs, ...}: {
   plugins = {
-    cmp-nvim-lsp = {enable = true;}; # lsp
-    cmp-buffer = {enable = true;};
-    cmp-path = {enable = true;}; # file system paths
-    cmp_luasnip = {enable = true;}; # snippets
-    cmp-cmdline = {enable = false;}; # autocomplete for cmdline
+    cmp-nvim-lsp = {enable = pkgs.lib.mkDefault true;}; # lsp
+    cmp-buffer = {enable = pkgs.lib.mkDefault true;};
+    cmp-path = {enable = pkgs.lib.mkDefault true;}; # file system paths
+    cmp_luasnip = {enable = pkgs.lib.mkDefault true;}; # snippets
+    cmp-cmdline = {enable = pkgs.lib.mkDefault false;}; # autocomplete for cmdline
     cmp = {
-      enable = true;
-      autoEnableSources = false;
+      enable = pkgs.lib.mkDefault true;
+      autoEnableSources = pkgs.lib.mkDefault false;
       settings = {
         experimental = {
           ghost_text = true;
         };
-      };
-      settings = {
+        # TODO: sort this raw stuff out
         mapping = {
           __raw = ''
             cmp.mapping.preset.insert({

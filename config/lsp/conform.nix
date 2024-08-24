@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   plugins.conform-nvim = {
-    enable = true;
-    notifyOnError = true;
+    enable = pkgs.lib.mkDefault true;
+    notifyOnError = pkgs.lib.mkDefault true;
     formattersByFt = {
       html = [["prettierd" "prettier"]];
       css = [["prettierd" "prettier"]];

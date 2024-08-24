@@ -1,6 +1,6 @@
-{
+{pkgs, ...}: {
   plugins.lspkind = {
-    enable = true;
+    enable = pkgs.lib.mkDefault true;
     symbolMap = {};
     extraOptions = {
       maxwidth = 50;

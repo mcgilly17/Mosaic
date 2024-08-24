@@ -1,6 +1,6 @@
-{
+{pkgs, ...}: {
   plugins.markdown-preview = {
-    enable = true;
+    enable = pkgs.lib.mkDefault true;
     settings = {
       theme = "dark";
     };

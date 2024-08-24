@@ -1,6 +1,6 @@
-_: {
+{pkgs, ...}: {
   plugins.spectre = {
-    enable = true;
+    enable = pkgs.lib.mkDefault true;
     settings = {
       replace = "sed";
     };

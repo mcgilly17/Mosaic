@@ -1,9 +1,9 @@
-{
+{pkgs, ...}: {
   plugins.harpoon = {
-    enable = true;
-    enableTelescope = true;
-    keymapsSilent = true;
-    saveOnToggle = true;
+    enable = pkgs.lib.mkDefault true;
+    enableTelescope = pkgs.lib.mkDefault true;
+    keymapsSilent = pkgs.lib.mkDefault true;
+    saveOnToggle = pkgs.lib.mkDefault true;
     keymaps = {
       #Keys added to whichkey too
       addFile = "<leader>ha";

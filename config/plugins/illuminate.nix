@@ -1,7 +1,7 @@
-{
+{pkgs, ...}: {
   plugins.illuminate = {
-    enable = false;
-    underCursor = false;
+    enable = pkgs.lib.mkDefault false;
+    underCursor = pkgs.lib.mkDefault false;
     filetypesDenylist = [
       "DressingSelect"
       "Outline"

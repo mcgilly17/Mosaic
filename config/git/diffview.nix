@@ -1,5 +1,5 @@
-{
+{pkgs, ...}: {
   plugins.diffview = {
-    enable = true;
+    enable = pkgs.lib.mkDefault true;
   };
 }

@@ -1,6 +1,6 @@
-{
+{pkgs, ...}: {
   plugins.typescript-tools = {
-    enable = true;
+    enable = pkgs.lib.mkDefault true;
     onAttach = ''
       function(client, bufnr)
         client.server_capabilities.documentFormattingProvider = false

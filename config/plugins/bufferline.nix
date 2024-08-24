@@ -1,7 +1,7 @@
-{
+{pkgs, ...}: {
   plugins = {
     bufferline = {
-      enable = true;
+      enable = pkgs.lib.mkDefault true;
       settings.options = {
         separatorStyle = "thick"; # “slant”, “padded_slant”, “slope”, “padded_slope”, “thick”, “thin”
         offsets = [

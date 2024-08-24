@@ -1,6 +1,6 @@
-{
+{pkgs, ...}: {
   plugins.telescope = {
-    enable = true;
+    enable = pkgs.lib.mkDefault true;
 
     extensions = {
       fzf-native = {

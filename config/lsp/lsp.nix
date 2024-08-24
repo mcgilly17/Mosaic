@@ -1,10 +1,10 @@
 {pkgs, ...}: {
   plugins = {
     lsp-format = {
-      enable = false; # Enable it if you want lsp-format integration for none-ls
+      enable = pkgs.lib.mkDefault false; # Enable it if you want lsp-format integration for none-ls
     };
     lsp = {
-      enable = true;
+      enable = pkgs.lib.mkDefault true;
       capabilities = "offsetEncoding =  'utf-16'";
       servers = {
         clangd = {enable = true;};
@@ -25,11 +25,11 @@
           };
         };
         marksman = {
-          enable = true;
+          enable = pkgs.lib.mkDefault true;
         };
-        nil-ls = {enable = true;};
+        nil-ls = {enable = pkgs.lib.mkDefault true;};
         tsserver = {
-          enable = false; #using typescript-tools instead right now
+          enable = pkgs.lib.mkDefault false; #using typescript-tools instead right now
           filetypes = ["javascript" "javascriptreact" "typescript" "typescriptreact"];
           extraOptions = {
             settings = {
@@ -58,12 +58,12 @@
             };
           };
         };
-        eslint = {enable = true;};
+        eslint = {enable = pkgs.lib.mkDefault true;};
         emmet-ls = {enable = true;};
-        pyright = {enable = true;};
-        ruff-lsp = {enable = true;};
+        pyright = {enable = pkgs.lib.mkDefault true;};
+        ruff-lsp = {enable = pkgs.lib.mkDefault true;};
         rust-analyzer = {
-          enable = true;
+          enable = pkgs.lib.mkDefault true;
           installCargo = true;
           installRustc = true;
           settings = {

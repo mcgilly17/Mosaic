@@ -1,6 +1,6 @@
-{
+{pkgs, ...}: {
   plugins.wilder = {
-    enable = true;
+    enable = pkgs.lib.mkDefault true;
     modes = [":" "/" "?"];
   };
 }
