@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   extraPlugins = with pkgs.vimUtils; [
+    # NOTE: Manual pkg install, check update
     (buildVimPlugin {
       pname = "sidebar.nvim";
       version = "2024-02-07";

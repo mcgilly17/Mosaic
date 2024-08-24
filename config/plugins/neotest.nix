@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   extraPlugins = with pkgs.vimPlugins; [
+    # NOTE: Manual pkg install, check update
     (pkgs.vimUtils.buildVimPlugin {
       pname = "neotest-java";
       version = "v0.9.0";
@@ -10,6 +11,7 @@
         sha256 = "0w5fvqic3qapi9ggfb81nqa9fl6jv831s91r0wgn4d7c35h0340r";
       };
     })
+    # NOTE: Manual pkg install, check update
     (pkgs.vimUtils.buildVimPlugin {
       pname = "neotest-vim-test";
       version = "2023-04-17";

@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   extraPlugins = with pkgs.vimPlugins; [
+    # NOTE: Manual pkg install, check update
     (pkgs.vimUtils.buildVimPlugin {
       pname = "surround-ui.nvim";
       version = "1.0.0";
