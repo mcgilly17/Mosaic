@@ -4,9 +4,9 @@
   config,
   ...
 }: let
-  cfg = config.mosaic.neotest;
+  cfg = config.plugs.neotest;
 in {
-  options.mosaic.neotest.enable = lib.mkEnableOption "neotest setup";
+  options.plugs.neotest.enable = lib.mkEnableOption "neotest setup";
 
   config = lib.mkIf cfg.enable {
     extraPlugins = with pkgs.vimPlugins; [
