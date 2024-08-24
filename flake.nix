@@ -43,10 +43,6 @@
         "aarch64-darwin"
       ];
 
-      imports = [
-        inputs.flake-parts.flakeModules.easyOverlay
-      ];
-
       perSystem = {
         self,
         config,
@@ -78,10 +74,6 @@
         packages = {
           inherit mosaic;
           default = mosaic;
-        };
-
-        overlayAttrs = {
-          inherit (config.packages) mosaic;
         };
       };
     };
