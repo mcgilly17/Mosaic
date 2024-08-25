@@ -1,11 +1,11 @@
 {pkgs, ...}: {
   plugins.luasnip = {
     enable = pkgs.lib.mkDefault true;
-    settings = {
+    settings = pkgs.lib.mkDefault {
       enable_autosnippets = true;
       store_selection_keys = "<Tab>";
     };
-    fromVscode = [
+    fromVscode = pkgs.lib.mkDefault [
       {
         lazyLoad = true;
         paths = "${pkgs.vimPlugins.friendly-snippets}";

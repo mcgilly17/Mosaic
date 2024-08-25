@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   plugins.none-ls = {
     enable = pkgs.lib.mkDefault false;
-    settings = {
+    settings = pkgs.lib.mkDefault {
       enableLspFormat = false;
       updateInInsert = false;
       onAttach = ''
@@ -19,7 +19,7 @@
           end
       '';
     };
-    sources = {
+    sources = pkgs.lib.mkDefault {
       code_actions = {
         gitsigns.enable = true;
         statix.enable = true;

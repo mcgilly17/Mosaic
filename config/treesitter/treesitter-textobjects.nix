@@ -2,8 +2,8 @@
   plugins.treesitter-textobjects = {
     enable = pkgs.lib.mkDefault true;
     select = {
-      enable = true;
-      lookahead = true;
+      enable = pkgs.lib.mkDefault true;
+      lookahead = pkgs.lib.mkDefault true;
       keymaps = {
         # Assignments
         "a=" = {

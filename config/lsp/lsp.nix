@@ -7,9 +7,8 @@
       enable = pkgs.lib.mkDefault true;
       capabilities = "offsetEncoding =  'utf-16'";
       servers = {
-        clangd = {enable = true;};
         lua-ls = {
-          enable = true;
+          enable = pkgs.lib.mkDefault true;
           extraOptions = {
             settings = {
               Lua = {
@@ -28,39 +27,8 @@
           enable = pkgs.lib.mkDefault true;
         };
         nil-ls = {enable = pkgs.lib.mkDefault true;};
-        tsserver = {
-          enable = pkgs.lib.mkDefault false; #using typescript-tools instead right now
-          filetypes = ["javascript" "javascriptreact" "typescript" "typescriptreact"];
-          extraOptions = {
-            settings = {
-              javascript = {
-                inlayHints = {
-                  includeInlayEnumMemberValueHints = true;
-                  includeInlayFunctionLikeReturnTypeHints = true;
-                  includeInlayFunctionParameterTypeHints = true;
-                  includeInlayParameterNameHints = "all";
-                  includeInlayParameterNameHintsWhenArgumentMatchesName = true;
-                  includeInlayPropertyDeclarationTypeHints = true;
-                  includeInlayVariableTypeHints = true;
-                };
-              };
-              typescript = {
-                inlayHints = {
-                  includeInlayEnumMemberValueHints = true;
-                  includeInlayFunctionLikeReturnTypeHints = true;
-                  includeInlayFunctionParameterTypeHints = true;
-                  includeInlayParameterNameHints = "all";
-                  includeInlayParameterNameHintsWhenArgumentMatchesName = true;
-                  includeInlayPropertyDeclarationTypeHints = true;
-                  includeInlayVariableTypeHints = true;
-                };
-              };
-            };
-          };
-        };
         eslint = {enable = pkgs.lib.mkDefault true;};
         emmet-ls = {enable = true;};
-        pyright = {enable = pkgs.lib.mkDefault true;};
         ruff-lsp = {enable = pkgs.lib.mkDefault true;};
         rust-analyzer = {
           enable = pkgs.lib.mkDefault true;

@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   plugins.undotree = {
     enable = pkgs.lib.mkDefault true;
-    settings = {
+    settings = pkgs.lib.mkDefault {
       autoOpenDiff = true;
       focusOnToggle = true;
     };

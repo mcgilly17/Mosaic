@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   plugins.which-key = {
     enable = pkgs.lib.mkDefault true;
-    settings = {
+    settings = pkgs.lib.mkDefault {
       icons = {
         breadcrumb = "»";
         group = "+";

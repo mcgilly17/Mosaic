@@ -1,11 +1,11 @@
-_: {
+{pkgs, ...}: {
   config = {
-    clipboard = {
+    clipboard = pkgs.lib.mkDefault {
       register = "unnamedplus";
     };
     editorconfig.enable = true;
 
-    opts = {
+    opts = pkgs.lib.mkDefault {
       # Enable relative line numbers
       number = true;
       relativenumber = true;

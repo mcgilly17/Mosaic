@@ -2,7 +2,7 @@
   plugins = {
     indent-blankline = {
       enable = pkgs.lib.mkDefault true;
-      settings = {
+      settings = pkgs.lib.mkDefault {
         indent = {
           char = "│"; # "│" or "▎"
         };

@@ -13,7 +13,6 @@
     ./lsp
     ./markdown
     ./pluginmanagers
-    ./snippets
     ./sets.nix
     ./treesitter
     ./ui

@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   plugins.trouble = {
     enable = pkgs.lib.mkDefault true;
-    settings = {
+    settings = pkgs.lib.mkDefault {
       auto_close = true;
     };
   };

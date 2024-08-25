@@ -7,7 +7,7 @@
     cmp-cmdline = {enable = pkgs.lib.mkDefault false;}; # autocomplete for cmdline
     cmp = {
       enable = pkgs.lib.mkDefault true;
-      autoEnableSources = pkgs.lib.mkDefault false;
+      autoEnableSources = false;
       settings = {
         experimental = {
           ghost_text = true;

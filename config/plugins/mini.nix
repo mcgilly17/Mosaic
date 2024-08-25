@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   plugins.mini = {
     enable = pkgs.lib.mkDefault true;
-    modules = {
+    modules = pkgs.lib.mkDefault {
       comment = {
         options = {
           customCommentString = ''
@@ -10,7 +10,6 @@
         };
       };
       cursorword = {};
-      surround = {};
       ai = {};
     };
   };

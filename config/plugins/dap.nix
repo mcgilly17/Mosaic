@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   plugins.dap = {
     enable = pkgs.lib.mkDefault true;
-    signs = {
+    signs = pkgs.lib.mkDefault {
       dapBreakpoint = {
         text = "●";
         texthl = "DapBreakpoint";
@@ -15,7 +15,7 @@
         texthl = "DapLogPoint";
       };
     };
-    extensions = {
+    extensions = pkgs.lib.mkDefault {
       dap-python = {
         enable = true;
       };

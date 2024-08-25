@@ -1,13 +1,13 @@
 {pkgs, ...}: {
   plugins.typescript-tools = {
     enable = pkgs.lib.mkDefault true;
-    onAttach = ''
+    onAttach = pkgs.lib.mkDefault ''
       function(client, bufnr)
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
       end
     '';
-    settings = {
+    settings = pkgs.lib.mkDefault {
       tsserverFilePreferences = {
         # Inlay Hints
         includeInlayParameterNameHints = "all";
