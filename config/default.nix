@@ -28,7 +28,6 @@
   plugs.sidebar.enable = pkgs.lib.mkDefault true;
   plugs.stay-centered.enable = pkgs.lib.mkDefault true;
   plugs.dressing.enable = pkgs.lib.mkDefault true;
-  plugs.eyeliner.enable = pkgs.lib.mkDefault false;
   plugs.nui.enable = pkgs.lib.mkDefault true;
 
   luaLoader.enable = pkgs.lib.mkDefault true;
