@@ -2,9 +2,9 @@
   imports = [
     ./better-escape.nix # plugin to enable escaping insert mode with keys like jj and reducing the delay
     ./dap.nix # debugger
+    ./hop.nix
     ./hardtime.nix # plugin to enforce good vim movements
     ./harpoon.nix # plugin from primeagen for managing lists of files you need to work on
-    ./illuminate.nix # highlights the same word currently under the cursor
     ./mini.nix # swiss army knife for neovim all written in lua
     ./neotest.nix # testing plugin
     ./nvim-colorizer.nix # color highlighting plugin

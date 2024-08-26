@@ -18,6 +18,7 @@
           ];
           group = "+buffers";
         }
+
         {
           __unkeyed-1 = "<leader>c";
           mode = [
@@ -26,6 +27,7 @@
           ];
           group = "+code";
         }
+
         {
           __unkeyed-1 = "<leader>d";
           mode = [
@@ -34,6 +36,16 @@
           ];
           group = "+debug";
         }
+
+        {
+          __unkeyed-1 = "<leader>j";
+          mode = [
+            "n"
+          ];
+          group = "+jump";
+          icon = "󰦻";
+        }
+
         {
           __unkeyed-1 = "<leader>l";
           mode = [
