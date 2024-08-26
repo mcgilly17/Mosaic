@@ -1,55 +1,35 @@
 {pkgs, ...}: {
   plugins = {
-    lsp-format = {
-      enable = pkgs.lib.mkDefault false; # Enable it if you want lsp-format integration for none-ls
-    };
     lsp = {
       enable = pkgs.lib.mkDefault true;
       capabilities = "offsetEncoding =  'utf-16'";
       servers = {
+        bashls.enable = pkgs.lib.mkDefault true;
+        dockerls.enable = pkgs.lib.mkDefault true;
+        jsonls.enable = pkgs.lib.mkDefault true;
+        pyright.enable = pkgs.lib.mkDefault true;
+        tailwindcss.enable = pkgs.lib.mkDefault true;
+        cssls.enable = pkgs.lib.mkDefault true;
+        html.enable = pkgs.lib.mkDefault true;
+        htmx.enable = pkgs.lib.mkDefault true;
+        yamlls.enable = pkgs.lib.mkDefault true;
         lua-ls = {
           enable = pkgs.lib.mkDefault true;
-          extraOptions = {
-            settings = {
-              Lua = {
-                completion = {
-                  callSnippet = "Replace";
-                };
-                telemetry = {
-                  enabled = false;
-                };
-                hint = {enable = true;};
-              };
-            };
-          };
-        };
-        marksman = {
-          enable = pkgs.lib.mkDefault true;
-        };
-        nil-ls = {enable = pkgs.lib.mkDefault true;};
-        eslint = {enable = pkgs.lib.mkDefault true;};
-        emmet-ls = {enable = true;};
-        ruff-lsp = {enable = pkgs.lib.mkDefault true;};
-        rust-analyzer = {
-          enable = pkgs.lib.mkDefault true;
-          installCargo = true;
-          installRustc = true;
           settings = {
-            checkOnSave = true;
-            check = {
-              command = "clippy";
-            };
-            # inlayHints = {
-            #   enable = true;
-            #   showParameterNames = true;
-            #   parameterHintsPrefix = "<- ";
-            #   otherHintsPrefix = "=> ";
-            # };
-            procMacro = {
-              enable = true;
+            Lua = {
+              completion = {
+                enable = true;
+                callSnippet = "Replace";
+              };
+              hint = {enable = true;};
             };
           };
         };
+        marksman.enable = pkgs.lib.mkDefault true;
+        nil-ls.enable = pkgs.lib.mkDefault true;
+        eslint.enable = pkgs.lib.mkDefault true;
+        emmet-ls.enable = pkgs.lib.mkDefault true;
+        ruff-lsp.enable = pkgs.lib.mkDefault true;
       };
     };
   };

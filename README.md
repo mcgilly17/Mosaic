@@ -13,7 +13,6 @@
             <img src="https://img.shields.io/static/v1.svg?style=for-the-badge&label=License&message=MIT&logoColor=ca9ee6&colorA=313244&colorB=cba6f7"/>
         </a>
         <br>
-        <img href="https://builtwithnix.org" src="https://builtwithnix.org/badge.svg"/>
     </div>
 </div>
 
@@ -36,11 +35,11 @@ don’t expect perfection—I'm just having fun.
 
 ## Features
 
-- **Nixvim for Declarative Configuration:** Utilize Nix expressions for a clean
+- **Declarative Configuration:** Utilize Nix expressions for a clean
 and maintainable Neovim setup. Easily add, remove, or update plugins, LSP
 servers, and other components with precision.
 
-- **Consistent Environments:** Reproduce your Neovim setup effortlessly on
+- **Immutable Environments:** Reproduce your Neovim setup effortlessly on
 any system with Nix installed, ensuring a uniform experience across all
 your development environments.
 
