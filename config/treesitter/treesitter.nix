@@ -1,14 +1,14 @@
 {pkgs, ...}: {
   plugins.treesitter = {
     enable = pkgs.lib.mkDefault true;
-    settings = pkgs.lib.mkDefault {
+    settings = {
       highlight = {
-        enable = true;
-        additional_vim_regex_highlighting = true;
+        enable = pkgs.lib.mkDefault true;
+        additional_vim_regex_highlighting = pkgs.lib.mkDefault true;
       };
-      auto_install = true;
-      indent.enable = true;
-      ensure_installed = [
+      auto_install = pkgs.lib.mkDefault true;
+      indent.enable = pkgs.lib.mkDefault true;
+      ensure_installed = pkgs.lib.mkDefault [
         "json"
         "javascript"
         "typescript"

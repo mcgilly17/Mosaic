@@ -144,22 +144,22 @@ home.packages = [
       plugs.sidebar.enable = false;
 
       plugins = {
-          # all available LSPs to enable can be found in the nixvim docs
-          # https://nix-community.github.io/nixvim/plugins/lsp/servers/beancount/index.html
-          lsp.servers = {
-              # You can enable new language servers or disable existing ones as follows
-              beancount.enable = true;
-          };
+        # all available LSPs to enable can be found in the nixvim docs
+        # https://nix-community.github.io/nixvim/plugins/lsp/servers/beancount/index.html
+        lsp.servers = {
+          # You can enable new language servers or disable existing ones as follows
+          beancount.enable = true;
+        };
 
-          # If there is a plugin you would like to install that isn't
-          # already added in Mosaic, you can add it here (or commit a PR!!)
-          # all plugins for nixvim that can be enabled can be found here:
-          # https://nix-community.github.io/nixvim/plugins/barbecue/index.html
-          barbeque.enable = true;
+        # If there is a plugin you would like to install that isn't
+        # already added in Mosaic, you can add it here (or commit a PR!!)
+        # all plugins for nixvim that can be enabled can be found here:
+        # https://nix-community.github.io/nixvim/plugins/barbecue/index.html
+        barbeque.enable = true;
 
-          # It's not just about enabling or disabling plugins, you can
-          # also overwrite settings.
-          bufferline.settings.options.separator_style = "thick";
+        # It's not just about enabling or disabling plugins, you can
+        # also overwrite settings.
+        bufferline.settings.options.separator_style = "thick";
       };
 
       keymaps = [

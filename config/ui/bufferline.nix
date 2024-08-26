@@ -2,9 +2,9 @@
   plugins = {
     bufferline = {
       enable = pkgs.lib.mkDefault true;
-      settings.options = pkgs.lib.mkDefault {
-        separator_style = "slant"; # “slant”, “padded_slant”, “slope”, “padded_slope”, “thick”, “thin”
-        offsets = [
+      settings.options = {
+        separator_style = pkgs.lib.mkDefault "slant"; # “slant”, “padded_slant”, “slope”, “padded_slope”, “thick”, “thin”
+        offsets = pkgs.lib.mkDefault [
           {
             filetype = "neo-tree";
             text = "Neo-tree";

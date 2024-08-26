@@ -1,23 +1,23 @@
 {pkgs, ...}: {
   plugins.typescript-tools = {
     enable = pkgs.lib.mkDefault true;
-    onAttach = pkgs.lib.mkDefault ''
+    onAttach = ''
       function(client, bufnr)
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
       end
     '';
-    settings = pkgs.lib.mkDefault {
+    settings = {
       tsserverFilePreferences = {
         # Inlay Hints
-        includeInlayParameterNameHints = "all";
-        includeInlayParameterNameHintsWhenArgumentMatchesName = true;
-        includeInlayFunctionParameterTypeHints = true;
-        includeInlayVariableTypeHints = true;
-        includeInlayVariableTypeHintsWhenTypeMatchesName = true;
-        includeInlayPropertyDeclarationTypeHints = true;
-        includeInlayFunctionLikeReturnTypeHints = true;
-        includeInlayEnumMemberValueHints = true;
+        includeInlayParameterNameHints = pkgs.lib.mkDefault "all";
+        includeInlayParameterNameHintsWhenArgumentMatchesName = pkgs.lib.mkDefault true;
+        includeInlayFunctionParameterTypeHints = pkgs.lib.mkDefault true;
+        includeInlayVariableTypeHints = pkgs.lib.mkDefault true;
+        includeInlayVariableTypeHintsWhenTypeMatchesName = pkgs.lib.mkDefault true;
+        includeInlayPropertyDeclarationTypeHints = pkgs.lib.mkDefault true;
+        includeInlayFunctionLikeReturnTypeHints = pkgs.lib.mkDefault true;
+        includeInlayEnumMemberValueHints = pkgs.lib.mkDefault true;
       };
     };
   };

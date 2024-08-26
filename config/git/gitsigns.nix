@@ -1,9 +1,9 @@
 {pkgs, ...}: {
   plugins.gitsigns = {
     enable = pkgs.lib.mkDefault true;
-    settings = pkgs.lib.mkDefault {
-      trouble = true;
-      current_line_blame = false;
+    settings = {
+      trouble = pkgs.lib.mkDefault true;
+      current_line_blame = pkgs.lib.mkDefault false;
     };
   };
 }
