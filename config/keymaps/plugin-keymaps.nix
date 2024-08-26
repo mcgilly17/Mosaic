@@ -60,6 +60,26 @@ _: {
       };
     }
 
+    {
+      mode = ["n"];
+      key = "<leader>jn";
+      action = ":HopNode<CR>";
+      options = {
+        silent = true;
+        desc = "Jump to Node";
+      };
+    }
+
+    {
+      mode = ["n"];
+      key = "<leader>jy";
+      action = ":HopYankChar1<CR>";
+      options = {
+        silent = true;
+        desc = "Yank without Jumping";
+      };
+    }
+
     #### remapping f/F and t/T to use Hop
     {
       mode = ["n"];
