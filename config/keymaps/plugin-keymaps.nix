@@ -6,6 +6,135 @@ _: {
   keymaps = [
     /*
     =============================================
+    =                     Hop                   =
+    =============================================
+    */
+
+    {
+      mode = ["n"];
+      key = "<leader>jw";
+      action = ":HopWord<CR>";
+      options = {
+        silent = true;
+        desc = "Jump to Word";
+      };
+    }
+
+    {
+      mode = ["n"];
+      key = "<leader>ja";
+      action = ":HopAnywhere<CR>";
+      options = {
+        silent = true;
+        desc = "Jump to Anywhere";
+      };
+    }
+
+    {
+      mode = ["n"];
+      key = "<leader>jl";
+      action = ":HopLineStart<CR>";
+      options = {
+        silent = true;
+        desc = "Jump to Line";
+      };
+    }
+
+    {
+      mode = ["n"];
+      key = "<leader>jp";
+      action = ":HopPattern<CR>";
+      options = {
+        silent = true;
+        desc = "Jump to Pattern";
+      };
+    }
+
+    {
+      mode = ["n"];
+      key = "<leader>jv";
+      action = ":HopVertical<CR>";
+      options = {
+        silent = true;
+        desc = "Jump Vertically";
+      };
+    }
+
+    #### remapping f/F and t/T to use Hop
+    {
+      mode = ["n"];
+      key = "f";
+      action.__raw = ''
+        function()
+          require'hop'.hint_char1({
+            direction = require'hop.hint'.HintDirection.AFTER_CURSOR,
+            current_line_only = true,
+            hint_offset = 1
+          })
+        end
+      '';
+      options = {
+        noremap = true;
+        silent = true;
+      };
+    }
+
+    {
+      mode = ["n"];
+      key = "F";
+      action.__raw = ''
+        function()
+          require'hop'.hint_char1({
+            direction = require'hop.hint'.HintDirection.BEFORE_CURSOR,
+            current_line_only = true,
+            hint_offset = 1
+          })
+        end
+      '';
+      options = {
+        noremap = true;
+        silent = true;
+      };
+    }
+
+    {
+      mode = ["n"];
+      key = "t";
+      action.__raw = ''
+        function()
+          require'hop'.hint_char1({
+            direction = require'hop.hint'.HintDirection.AFTER_CURSOR,
+            current_line_only = true,
+            hint_offset = -1
+          })
+        end
+      '';
+      options = {
+        noremap = true;
+        silent = true;
+      };
+    }
+
+    {
+      mode = ["n"];
+      key = "T";
+      action.__raw = ''
+        function()
+          require'hop'.hint_char1({
+            direction = require'hop.hint'.HintDirection.BEFORE_CURSOR,
+            current_line_only = true,
+            hint_offset = -1
+          })
+        end
+      '';
+      options = {
+        noremap = true;
+        silent = true;
+      };
+    }
+
+    /*
+    =============================================
     =                     Oil                   =
     =============================================
     */
@@ -19,6 +148,7 @@ _: {
         silent = true;
       };
     }
+
     /*
     =============================================
     =                Git (GitSigns)             =
@@ -536,26 +666,6 @@ _: {
       };
     }
 
-    # {
-    #   mode = "n";
-    #   key = "<leader>ld]";
-    #   action = "<cmd>Lspsaga diagnostic_jump_next<CR>";
-    #   options = {
-    #     desc = "Next Diagnostic";
-    #     silent = true;
-    #   };
-    # }
-
-    # {
-    #   mode = "n";
-    #   key = "<leader>ld[";
-    #   action = "<cmd>Lspsaga diagnostic_jump_prev<CR>";
-    #   options = {
-    #     desc = "Previous Diagnostic";
-    #     silent = true;
-    #   };
-    # }
-
     {
       mode = "n";
       key = "<leader>ld";
@@ -632,6 +742,7 @@ _: {
       };
     }
   ];
+
   extraConfigLua = ''
     local notify = require("notify")
 
