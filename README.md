@@ -31,7 +31,7 @@ This project draws inspiration from others, especially Redyf's
 Unlike, Redyf and other's, I'm not an expert in Nix, NixVim, or Neovim, so please
 don’t expect perfection—I'm just having fun.
 
-![Screenshot](assets/mosaic-2.png)
+![Screenshot](assets/screenshot.png)
 
 ## Features
 
