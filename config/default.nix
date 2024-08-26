@@ -23,7 +23,7 @@
 
   # Manually installed plugins are managed here
   plugs.neotest.enable = pkgs.lib.mkDefault true;
-  plugs.surround.enable = pkgs.lib.mkDefault false;
+  plugs.surround.enable = pkgs.lib.mkDefault true;
   plugs.ultimate-autopair.enable = pkgs.lib.mkDefault true;
   plugs.sidebar.enable = pkgs.lib.mkDefault true;
   plugs.stay-centered.enable = pkgs.lib.mkDefault true;

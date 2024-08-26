@@ -76,22 +76,22 @@ environment.systemPackages or home.packages
 
 ```nix
 {
-    inputs.mosaic.url = "github:mcgilly17/Mosaic";
+  inputs.mosaic.url = "github:mcgilly17/Mosaic";
 
-    outputs = { mosaic }: {
+  outputs = { mosaic }: {
 
-        # Add to your system packages or home-manager packages.
-        environent.systemPackages = [
-            mosaic.packages.${pkgs.system}.default
-        ];
-        
-        # Home manager installation might work like this
-        # assuming you are in a different file:
-        home.packages = [
-            inputs.mosaic.packages.${pkgs.system}.default
-        ];
+    # Add to your system packages or home-manager packages.
+    environent.systemPackages = [
+      mosaic.packages.${pkgs.system}.default
+    ];
 
-    };
+    # Home manager installation might work like this
+    # assuming you are in a different file:
+    home.packages = [
+      inputs.mosaic.packages.${pkgs.system}.default
+    ];
+
+  };
 }
 ```
 
@@ -102,20 +102,20 @@ You can add Mosaic as an overlay to nixpkgs
 ```nix
 # This one brings our custom packages from the 'pkgs' directory
 overlays.additions = final: _prev: {
-    mosaic = inputs.mosaic.packages.${final.pkgs.system}.default;
+  mosaic = inputs.mosaic.packages.${final.pkgs.system}.default;
 };
 
 # Mosaic is now available in pkgs wherever you want to use it
 home.packages = [
-    pkgs.mosaic
+  pkgs.mosaic
 ];
 
 ```
 
 ## Extending Mosaic
 
-I will **attempt** to make Mosaic fully extensible. By that I mean, anyone
-should be able to bring Mosaic into their configs and with relative east: add,
+I am **attempting** to make Mosaic fully extensible. By that I mean, anyone
+should be able to bring Mosaic into their configs and with relative ease: add,
 remove and overwrite any setting or plugin. There are some limitations right now,
 mainly with extraConfigLua. If anyone knows how to make Mosaic more modular,
 please don't hesitate to raise an issue / discussion / PR.
@@ -126,92 +126,117 @@ Basic level configurations and settings updates can be done as follows:j
 
 ```nix
 home.packages = [
-    (pkgs.mosaic.extend {
-        config = {
-            # https://nix-community.github.io/nixvim/NeovimOptions/index.html
-            # All options are available at the link above.
+  (pkgs.mosaic.extend {
+    config = {
+      # https://nix-community.github.io/nixvim/NeovimOptions/index.html
+      # All options are available at the link above.
 
-            # Some core configs for nixvim that are not set in mosaic
-            enableMan = true;
-            viAlias = true;
-            vimAlias = true;
+      # Some core configs for nixvim that are not set in mosaic
+      enableMan = true;
+      viAlias = true;
+      vimAlias = true;
 
-            # In Mosaic, some of the plugins are installed manually
-            # using vimUtils.buildVimPlugin. In those coses, in order 
-            # to disable the plugin you have access to plugs.pluginNAME
-            plugs.sidebar.enable = false;
+      # In Mosaic, some of the plugins are installed manually
+      # using vimUtils.buildVimPlugin. In those coses, in order
+      # to disable the plugin you have access to plugs.pluginNAME
+      plugs.sidebar.enable = false;
 
-            plugins = {
-                # all available LSPs to enable can be found in the nixvim docs
-                # https://nix-community.github.io/nixvim/plugins/lsp/servers/beancount/index.html
-                lsp.servers = { 
-                    # You can enable new language servers or disable existing ones as follows
-                    beancount.enable = true;
-                };    
-                
-                # If there is a plugin you would like to install that isn't
-                # already added in Mosaic, you can add it here (or commit a PR!!)
-                # all plugins for nixvim that can be enabled can be found here:
-                # https://nix-community.github.io/nixvim/plugins/barbecue/index.html
-                barbeque.enable = true;
+      plugins = {
+          # all available LSPs to enable can be found in the nixvim docs
+          # https://nix-community.github.io/nixvim/plugins/lsp/servers/beancount/index.html
+          lsp.servers = {
+              # You can enable new language servers or disable existing ones as follows
+              beancount.enable = true;
+          };
 
-                # It's not just about enabling or disabling plugins, you can 
-                # also overwrite settings.
-                bufferline.settings.options.separator_style = "thick";
-            };
+          # If there is a plugin you would like to install that isn't
+          # already added in Mosaic, you can add it here (or commit a PR!!)
+          # all plugins for nixvim that can be enabled can be found here:
+          # https://nix-community.github.io/nixvim/plugins/barbecue/index.html
+          barbeque.enable = true;
 
+          # It's not just about enabling or disabling plugins, you can
+          # also overwrite settings.
+          bufferline.settings.options.separator_style = "thick";
+      };
 
-            keymaps = [
-              {
-                mode = ["i" "v"];
-                action = "<Esc>";
-                key = "oo";
-              }
-            ];
-
-        };
-    })
+      keymaps = [
+        {
+          mode = ["i" "v"];
+          action = "<Esc>";
+          key = "oo";
+        }
+      ];
+    };
+  })
 ];
 ```
 
-### Building New Plugins
+### Building Plugins
 
 Many times Nixvim wont have a plugin immediately available to install. In those
 cases you can extend Mosiac and install the plugin. Or feel free to raise a PR
 with the new plugin installed!
 
-The example below is what I use to install Fugit2. Its a great example as I
-couldn't work out a way to install it in Mosaic given its need to add the path
-to libgit2 which is only installed in my nix configs.
+Below you will see two examples of installation. One by simply adding it from
+pkgs.vimPlugins and the other when its not available and needs to be built.
+
+The example of "building a plugin" below is what I use to install Fugit2. It's
+an odd example as I couldn't work out a way to install it in Mosaic given its
+need to add the path to libgit2 which can only installed in my nix configs.
 
 ```nix
 home.packages = [
-    (pkgs.mosaic.extend {
-        #### Rest of your configs #####
+  (pkgs.mosaic.extend {
+    #### Rest of your configs #####
 
-        config = {
-            extraPlugins = with pkgs.vimUtils; [
-                (buildVimPlugin {
-                    pname = "fugit2.nvim";
-                    version = "0.2.1";
-                    src = pkgs.fetchFromGitHub {
-                      owner = "SuperBo";
-                      repo = "fugit2.nvim";
-                      rev = "e8b262d3f974a301b9efae98a571e6c9e635ab16";
-                      sha256 = "sha256-U9Ve7mgJlQwArgDBOXC2ezaaG7zIOJalLEl5Hyw2jMA=";
-                    };
-                })
-            ];
-            extraConfigLua = ''
-                require('fugit2').setup{
-                    libgit2_path = '${pkgs.libgit2.outPath}/lib/libgit2.1.7.2.dylib',
-                    external_diffview = true,
-                }
-            '';
-        };
-    })
+    config = {
+      extraPlugins = with pkgs.vimPlugins; [
+          # If the plugin is available in pkgs.vimPlugins (check on nixpkgs)
+          # then it can be added by name, for example:
+          nvim-surround
+
+          # If the plugin doesnt exist in vimPlugins, then you can build
+          # the plugin as you can see below. An easy way to get the sha256
+          # is to leave it empty, run a check flake and it will error with
+          # the right sha for you!
+          (buildVimPlugin {
+              pname = "fugit2.nvim";
+              version = "0.2.1";
+              src = pkgs.fetchFromGitHub {
+                owner = "SuperBo";
+                repo = "fugit2.nvim";
+                rev = "e8b262d3f974a301b9efae98a571e6c9e635ab16";
+                sha256 = "sha256-U9Ve7mgJlQwArgDBOXC2ezaaG7zIOJalLEl5Hyw2jMA=";
+              };
+          })
+      ];
+      extraConfigLua = ''
+          require('fugit2').setup{
+              libgit2_path = '${pkgs.libgit2.outPath}/lib/libgit2.1.7.2.dylib',
+              external_diffview = true,
+          }
+      '';
+    };
+  })
 ];
 ```
+
+## Structure
+
+Here is a quick description of some of the most important folders and files in Mosaic
+
+- **config/default.nix:** The core file where all plugins are enabled.
+
+- **config/sets.nix:** Add, remove, or adjust options and settings in this file.
+
+- **config/keymaps/*:** Customize key mappings to boost productivity.
+
+- **config/lsp/lsp/*:** Configure your preferred Language Servers here.
+
+- **config/completion/*:** Manage completion and snippets.
+
+- **config/plugins/*:** Additional plugins that arent sorted into folders
 
 ## Support
 

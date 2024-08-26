@@ -1,6 +1,5 @@
 {
   imports = [
-    ./bufferline.nix #  Buffer management plugin
     ./better-escape.nix # plugin to enable escaping insert mode with keys like jj and reducing the delay
     ./dap.nix # debugger
     ./hardtime.nix # plugin to enforce good vim movements
