@@ -26,14 +26,6 @@ _: {
     */
 
     {
-      mode = "n";
-      key = "<leader>gg";
-      action = "<cmd>LazyGit<CR>";
-      options = {
-        desc = "LazyGit (root dir)";
-      };
-    }
-    {
       mode = ["n" "v"];
       key = "<leader>gh";
       action = "gitsigns";
