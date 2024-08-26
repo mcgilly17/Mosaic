@@ -40,7 +40,6 @@
           __raw = "function() require('telescope.builtin').find_files() end";
         };
         opts = {
-          # hl = "comment";
           keymap = [
             "n"
             "f"
@@ -63,40 +62,11 @@
       (padding 1)
       {
         type = "button";
-        val = "  New File";
-        on_press = {
-          __raw = "function() vim.cmd[[ene]] end";
-        };
-        opts = {
-          # hl = "comment";
-          keymap = [
-            "n"
-            "n"
-            ":ene <BAR> startinsert <CR>"
-            {
-              noremap = true;
-              silent = true;
-              nowait = true;
-            }
-          ];
-          shortcut = "n";
-
-          position = "center";
-          cursor = 3;
-          width = 38;
-          align_shortcut = "right";
-          hl_shortcut = "Keyword";
-        };
-      }
-      (padding 1)
-      {
-        type = "button";
         val = "󰈚  Recent Files";
         on_press = {
           __raw = "function() require('telescope.builtin').oldfiles() end";
         };
         opts = {
-          # hl = "comment";
           keymap = [
             "n"
             "r"
@@ -119,40 +89,11 @@
       (padding 1)
       {
         type = "button";
-        val = "󰈭  Find Word";
-        on_press = {
-          __raw = "function() require('telescope.builtin').live_grep() end";
-        };
-        opts = {
-          # hl = "comment";
-          keymap = [
-            "n"
-            "g"
-            ":Telescope live_grep <CR>"
-            {
-              noremap = true;
-              silent = true;
-              nowait = true;
-            }
-          ];
-          shortcut = "g";
-
-          position = "center";
-          cursor = 3;
-          width = 38;
-          align_shortcut = "right";
-          hl_shortcut = "Keyword";
-        };
-      }
-      (padding 1)
-      {
-        type = "button";
         val = "  Restore Session";
         on_press = {
           __raw = "function() require('persistence').load() end";
         };
         opts = {
-          # hl = "comment";
           keymap = [
             "n"
             "s"
@@ -175,12 +116,38 @@
       (padding 1)
       {
         type = "button";
+        val = "  New File";
+        on_press = {
+          __raw = "function() vim.cmd[[ene]] end";
+        };
+        opts = {
+          keymap = [
+            "n"
+            "n"
+            ":ene <BAR> startinsert <CR>"
+            {
+              noremap = true;
+              silent = true;
+              nowait = true;
+            }
+          ];
+          shortcut = "n";
+
+          position = "center";
+          cursor = 3;
+          width = 38;
+          align_shortcut = "right";
+          hl_shortcut = "Keyword";
+        };
+      }
+      (padding 1)
+      {
+        type = "button";
         val = "  Quit Neovim";
         on_press = {
           __raw = "function() vim.cmd[[qa]] end";
         };
         opts = {
-          # hl = "comment";
           keymap = [
             "n"
             "q"

@@ -28,9 +28,11 @@ just starting, Mosaic adapts to your workflow, letting you focus on writing grea
 code without the hassle of setup.
 
 This project draws inspiration from others, especially Redyf's
-[Neve](<https://github.com/mcgilly17/Mosaic> R), a phenomenal and meticulous configuration.
+[Neve](<https://github.com/redyf/Neve>), a phenomenal and meticulous configuration.
 Unlike, Redyf and other's, I'm not an expert in Nix, NixVim, or Neovim, so please
 don’t expect perfection—I'm just having fun.
+
+![Screenshot](assets/mosaic-2.png)
 
 ## Features
 
