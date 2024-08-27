@@ -70,7 +70,7 @@ You can first just try out the config by running the following:
 nix run github:mcgilly17/Mosaic
 ```
 
-### Simple install
+### Direct Install
 
 You can add Mosaic as a flake input to you systems nix configuration and adding to
 environment.systemPackages or home.packages
@@ -173,7 +173,7 @@ home.packages = [
 ];
 ```
 
-### Building Plugins
+### Other Plugins
 
 Many times Nixvim wont have a plugin immediately available to install. In those
 cases you can extend Mosiac and install the plugin. Or feel free to raise a PR
