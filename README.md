@@ -227,17 +227,17 @@ home.packages = [
 
 Here is a quick description of some of the most important folders and files in Mosaic
 
-- **config/default.nix:** The core file where all plugins are enabled.
+- **config/default.nix** The core file where all plugins are enabled.
 
-- **config/sets.nix:** Add, remove, or adjust options and settings in this file.
+- **config/sets.nix** Add, remove, or adjust options and settings in this file.
 
-- **config/keymaps/*:** Customize key mappings to boost productivity.
+- **config/keymaps/*** Customize key mappings to boost productivity.
 
-- **config/lsp/lsp/*:** Configure your preferred Language Servers here.
+- **config/lsp/*** Configure your preferred Language Servers here.
 
-- **config/completion/*:** Manage completion and snippets.
+- **config/completion/*** Manage completion and snippets.
 
-- **config/plugins/*:** Additional plugins that arent sorted into folders
+- **config/plugins/*** Additional plugins that arent sorted into folders
 
 ## Support
 
