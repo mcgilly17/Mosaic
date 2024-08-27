@@ -1,8 +1,5 @@
 {pkgs, ...}: {
   config = {
-    clipboard = {
-      register = "unnamedplus";
-    };
     editorconfig.enable = true;
 
     opts = {
