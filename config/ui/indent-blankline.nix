@@ -1,14 +1,11 @@
 {pkgs, ...}: {
   plugins = {
+    rainbow-delimiters.enable = pkgs.lib.mkDefault true;
     indent-blankline = {
       enable = pkgs.lib.mkDefault true;
-      settings = pkgs.lib.mkDefault {
+      settings = {
         indent = {
           char = "│"; # "│" or "▎"
-        };
-        scope = {
-          enabled = true;
-          show_start = true;
         };
         exclude = {
           buftypes = ["terminal" "nofile"];
@@ -29,7 +26,7 @@
       };
     };
   };
-  extraConfigLua = ''
+  extraConfigLuaPost = ''
     local highlight = {
       "RainbowRed",
       "RainbowYellow",
