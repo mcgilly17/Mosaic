@@ -62,7 +62,7 @@ tools, making development smoother and more efficient.
 
 Installing and using Mosaic is pretty straight forward, but you have many options!
 
-### Try before you ~~buy~~
+### Try it out!
 
 You can first just try out the config by running the following:
 
