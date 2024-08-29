@@ -30,8 +30,12 @@ This project draws inspiration from others, especially Redyf's
 [Neve](<https://github.com/redyf/Neve>), a phenomenal and meticulous configuration.
 Unlike, Redyf and other's, I'm not an expert in Nix, NixVim, or Neovim, so please
 don’t expect perfection—I'm just having fun.
+<details>
+    <summary>Screenshots</summary>
 
-![Screenshot](assets/screenshot.png)
+![Screenshot](assets/screenshot-1.png)
+![Screenshot](assets/screenshot-2.png)
+</details>
 
 ## Features
 
