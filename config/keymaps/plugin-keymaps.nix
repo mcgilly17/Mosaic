@@ -542,6 +542,15 @@ _: {
 
     {
       mode = "n";
+      key = "<leader>bD";
+      action = "<Cmd>bdelete!<CR>";
+      options = {
+        desc = "Force Delete";
+      };
+    }
+
+    {
+      mode = "n";
       key = "<leader>bb";
       action = "<cmd>e #<cr>";
       options = {
@@ -591,97 +600,6 @@ _: {
       action = "<Cmd>BufferLineGroupClose ungrouped<CR>";
       options = {
         desc = "Delete non-pinned buffers";
-      };
-    }
-    /*
-    =============================================
-    =                LSP Section                =
-    =============================================
-    */
-
-    {
-      mode = "n";
-      key = "<leader>la";
-      action = "<cmd>Lspsaga code_action<CR>";
-      options = {
-        desc = "Code Action";
-        silent = true;
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>ld";
-      action = "<cmd>Lspsaga peek_type_definition<CR>";
-      options = {
-        desc = "Type Definition";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>lD";
-      action = "<cmd>Lspsaga finder def<CR>";
-      options = {
-        desc = "Goto Definition";
-        silent = true;
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>lh";
-      action = "<cmd>Lspsaga hover_doc<CR>";
-      options = {
-        desc = "Hover";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>lI";
-      action = "<cmd>Lspsaga finder imp<CR>";
-      options = {
-        desc = "Goto Implementation";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>ll";
-      action = "<cmd>Lspsaga show_line_diagnostics<CR>";
-      options = {
-        desc = "Line Diagnostics";
-        silent = true;
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>lo";
-      action = "<cmd>Lspsaga outline<CR>";
-      options = {
-        desc = "Outline";
-        silent = true;
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>lr";
-      action = "<cmd>Lspsaga rename<CR>";
-      options = {
-        desc = "Rename";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>lR";
-      action = "<cmd>Lspsaga finder ref<CR>";
-      options = {
-        desc = "Goto References";
-        silent = true;
       };
     }
   ];

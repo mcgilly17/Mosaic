@@ -47,15 +47,6 @@
         }
 
         {
-          __unkeyed-1 = "<leader>l";
-          mode = [
-            "n"
-            "v"
-          ];
-          group = "+LSP";
-          icon = "󰬓";
-        }
-        {
           __unkeyed-1 = "<leader>f";
           mode = "n";
           group = "+find/file";
@@ -216,8 +207,6 @@
           ];
           group = "+fold";
         }
-
-        # LSP Configs
       ];
       win = {
         border = "none";
