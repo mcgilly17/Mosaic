@@ -38,15 +38,6 @@
         }
 
         {
-          __unkeyed-1 = "<leader>j";
-          mode = [
-            "n"
-          ];
-          group = "+jump";
-          icon = "󰦻";
-        }
-
-        {
           __unkeyed-1 = "<leader>f";
           mode = "n";
           group = "+find/file";
