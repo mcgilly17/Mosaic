@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   plugins.which-key = {
     enable = pkgs.lib.mkDefault true;
-    settings = pkgs.lib.mkDefault {
+    settings = {
       icons = {
         breadcrumb = "»";
         group = "+";
@@ -104,13 +104,6 @@
           group = "+tabs";
         }
 
-        {
-          __unkeyed-1 = "<leader>t";
-          mode = [
-            "n"
-          ];
-          group = "+test";
-        }
         {
           __unkeyed-1 = "<leader>T";
           mode = [

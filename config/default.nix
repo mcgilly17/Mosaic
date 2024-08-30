@@ -3,6 +3,19 @@
   inputs,
   ...
 }: {
+  # Manually installed plugins are managed here
+  plugins.mosaic-testing.enable = pkgs.lib.mkDefault true;
+
+  plugs = {
+    surround.enable = pkgs.lib.mkDefault true;
+    ultimate-autopair.enable = pkgs.lib.mkDefault true;
+    sidebar.enable = pkgs.lib.mkDefault true;
+    stay-centered.enable = pkgs.lib.mkDefault true;
+    dressing.enable = pkgs.lib.mkDefault true;
+    nui.enable = pkgs.lib.mkDefault true;
+    rainbow-indent.enable = pkgs.lib.mkDefault true;
+  };
+
   imports = [
     # Base Configs
     ./colorschemes.nix
@@ -21,17 +34,6 @@
     ./plugins
   ];
 
-  # Manually installed plugins are managed here
-  plugs = {
-    neotest.enable = pkgs.lib.mkDefault true;
-    surround.enable = pkgs.lib.mkDefault true;
-    ultimate-autopair.enable = pkgs.lib.mkDefault true;
-    sidebar.enable = pkgs.lib.mkDefault true;
-    stay-centered.enable = pkgs.lib.mkDefault true;
-    dressing.enable = pkgs.lib.mkDefault true;
-    nui.enable = pkgs.lib.mkDefault true;
-    rainbow-indent.enable = pkgs.lib.mkDefault true;
-  };
   luaLoader.enable = pkgs.lib.mkDefault true;
 
   package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
