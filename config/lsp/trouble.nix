@@ -34,7 +34,7 @@
     {
       mode = "n";
       key = "<leader>Tx";
-      action = "<cmd>TroubleToggle<cr>";
+      action = "<cmd>Trouble diagnostics toggle filter.buf=0<cr>";
       options = {
         silent = true;
         desc = "Document Diagnostics (Trouble)";
@@ -43,7 +43,7 @@
     {
       mode = "n";
       key = "<leader>TX";
-      action = "<cmd>TroubleToggle workspace_diagnostics<cr>";
+      action = "<cmd>Trouble diagnostics toggle<cr>";
       options = {
         silent = true;
         desc = "Workspace Diagnostics (Trouble)";
@@ -52,7 +52,7 @@
     {
       mode = "n";
       key = "<leader>Tt";
-      action = "<cmd>TroubleToggle todo<cr>";
+      action = "<cmd>Trouble todo toggle<cr>";
       options = {
         silent = true;
         desc = "Todo (Trouble)";
@@ -60,8 +60,8 @@
     }
     {
       mode = "n";
-      key = "<leader>TQ";
-      action = "<cmd>TodoQuickFix<cr>";
+      key = "<leader>Tq";
+      action = "<cmd>Trouble qflist toggle<cr>";
       options = {
         silent = true;
         desc = "Quickfix List (Trouble)";
