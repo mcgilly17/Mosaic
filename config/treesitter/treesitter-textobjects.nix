@@ -207,14 +207,14 @@
     swap = {
       enable = pkgs.lib.mkDefault true;
       swapNext = {
-        "<leader>csna" = "@parameter.inner"; # swap parameters/argument with next
-        "<leader>csn:" = "@property.outer"; # swap object property with next
-        "<leader>csnm" = "@function.outer"; # swap function with next
+        "<leader>cSna" = "@parameter.inner"; # swap parameters/argument with next
+        "<leader>cSn:" = "@property.outer"; # swap object property with next
+        "<leader>cSnm" = "@function.outer"; # swap function with next
       };
       swapPrevious = {
-        "<leader>cspa" = "@parameter.inner"; # swap parameters/argument with prev
-        "<leader>csp:" = "@property.outer"; # swap object property with prev
-        "<leader>cspm" = "@function.outer"; # swap function with previous
+        "<leader>cSpa" = "@parameter.inner"; # swap parameters/argument with prev
+        "<leader>cSp:" = "@property.outer"; # swap object property with prev
+        "<leader>cSpm" = "@function.outer"; # swap function with previous
       };
     };
   };
@@ -222,21 +222,21 @@
   plugins.which-key.settings.spec = pkgs.lib.optionals config.plugins.treesitter-textobjects.enable [
     # Code Configs
     {
-      __unkeyed-1 = "<leader>cs";
+      __unkeyed-1 = "<leader>cS";
       mode = [
         "n"
       ];
       group = "+swap";
     }
     {
-      __unkeyed-1 = "<leader>csn";
+      __unkeyed-1 = "<leader>cSn";
       mode = [
         "n"
       ];
       group = "+next";
     }
     {
-      __unkeyed-1 = "<leader>csp";
+      __unkeyed-1 = "<leader>cSp";
       mode = [
         "n"
       ];
