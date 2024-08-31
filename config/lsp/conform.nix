@@ -5,21 +5,23 @@
 }: {
   plugins.conform-nvim = {
     enable = pkgs.lib.mkDefault true;
-    notifyOnError = pkgs.lib.mkDefault true;
-    formattersByFt = pkgs.lib.mkDefault {
-      html = [["prettierd" "prettier"]];
-      css = [["prettierd" "prettier"]];
-      javascript = [["prettierd" "prettier"]];
-      javascriptreact = [["prettierd" "prettier"]];
-      typescript = [["prettierd" "prettier"]];
-      typescriptreact = [["prettierd" "prettier"]];
-      java = ["google-java-format"];
-      json = ["jq"];
-      python = ["black"];
-      lua = ["stylua"];
-      nix = ["alejandra"];
-      markdown = [["markdownlint-cli2" "prettierd"]];
-      rust = ["rustfmt"];
+    settings = {
+      notify_on_error = pkgs.lib.mkDefault true;
+      formatters_by_ft = pkgs.lib.mkDefault {
+        html = [["prettierd" "prettier"]];
+        css = [["prettierd" "prettier"]];
+        javascript = [["prettierd" "prettier"]];
+        javascriptreact = [["prettierd" "prettier"]];
+        typescript = [["prettierd" "prettier"]];
+        typescriptreact = [["prettierd" "prettier"]];
+        java = ["google-java-format"];
+        json = ["jq"];
+        python = ["black"];
+        lua = ["stylua"];
+        nix = ["alejandra"];
+        markdown = [["markdownlint-cli2" "prettierd"]];
+        rust = ["rustfmt"];
+      };
     };
   };
 

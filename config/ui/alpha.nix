@@ -2,7 +2,6 @@
   plugins.alpha = {
     enable = pkgs.lib.mkDefault true;
     theme = null;
-    iconsEnabled = true;
     layout = let
       padding = val: {
         type = "padding";
@@ -17,7 +16,7 @@
         };
         type = "text";
         val = [
-          "                              git@github.com:mcgilly17/mosaic                             "
+          "                              git@github.com:mcgilly17/Mosaic                             "
           "                                                                                          "
           "          ___           ___           ___           ___                       ___       "
           "         /__/\\         /  /\\         /  /\\         /  /\\        ___          /  /\\      "
