@@ -7,7 +7,7 @@
   plugins = {
     lsp = {
       enable = pkgs.lib.mkDefault true;
-      capabilities = "offsetEncoding =  'utf-16'";
+      capabilities = "offsetEncoding = 'utf-16'";
       servers = {
         bashls.enable = pkgs.lib.mkDefault true;
         dockerls.enable = pkgs.lib.mkDefault true;
@@ -32,6 +32,7 @@
         };
         marksman.enable = pkgs.lib.mkDefault true;
         nil-ls.enable = pkgs.lib.mkDefault true;
+        nixd.enable = pkgs.lib.mkDefault true;
         eslint.enable = pkgs.lib.mkDefault true;
         emmet-ls.enable = pkgs.lib.mkDefault true;
         ruff-lsp.enable = pkgs.lib.mkDefault true;

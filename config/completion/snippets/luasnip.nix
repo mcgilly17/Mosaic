@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   plugins.luasnip = {
     enable = pkgs.lib.mkDefault true;
     settings = pkgs.lib.mkDefault {
@@ -16,4 +20,8 @@
       }
     ];
   };
+
+  extraConfigLua = pkgs.lib.mkIf config.plugins.luasnip.enable ''
+    luasnip = require("luasnip")
+  '';
 }
