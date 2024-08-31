@@ -6,52 +6,6 @@ _: {
   keymaps = [
     /*
     =============================================
-    =                    Trouble                =
-    =============================================
-    */
-    {
-      mode = "n";
-      key = "<leaderT";
-      action = "+diagnostics/quickfix";
-    }
-    {
-      mode = "n";
-      key = "<leader>Tx";
-      action = "<cmd>TroubleToggle<cr>";
-      options = {
-        silent = true;
-        desc = "Document Diagnostics (Trouble)";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>TX";
-      action = "<cmd>TroubleToggle workspace_diagnostics<cr>";
-      options = {
-        silent = true;
-        desc = "Workspace Diagnostics (Trouble)";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>Tt";
-      action = "<cmd>TroubleToggle todo<cr>";
-      options = {
-        silent = true;
-        desc = "Todo (Trouble)";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>TQ";
-      action = "<cmd>TodoQuickFix<cr>";
-      options = {
-        silent = true;
-        desc = "Quickfix List (Trouble)";
-      };
-    }
-    /*
-    =============================================
     =       Code (Conform, TSTools, Spectre)    =
     =============================================
     */

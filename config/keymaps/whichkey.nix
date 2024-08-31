@@ -86,14 +86,6 @@
         }
 
         {
-          __unkeyed-1 = "<leader>T";
-          mode = [
-            "n"
-          ];
-          group = "+trouble";
-        }
-
-        {
           __unkeyed-1 = "<leader>u";
           mode = "n";
           group = "+ui";
