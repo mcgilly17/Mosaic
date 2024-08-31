@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   plugins.oil = {
     enable = pkgs.lib.mkDefault true;
     settings = {
@@ -40,4 +44,32 @@
       };
     };
   };
+
+  plugins.which-key.settings.spec = pkgs.lib.optionals config.plugins.oil.enable [
+    {
+      __unkeyed-1 = "<leader>o";
+      __unkeyed-2 = "<cmd>Oil --float<CR>";
+      mode = "n";
+      desc = "Open directory";
+      silent = true;
+      icon = "";
+    }
+  ];
+  # keymaps = pkgs.lib.mkIf config.plugins.oil.enable [
+  #   /*
+  #       =============================================
+  #   =                     Oil                   =
+  #   =============================================
+  #   */
+  #
+  #   {
+  #     mode = "n";
+  #     key = "<leader>o";
+  #     action = ":Oil --float<CR>";
+  #     options = {
+  #       desc = "Open parent directory";
+  #       silent = true;
+  #     };
+  #   }
+  # ];
 }
