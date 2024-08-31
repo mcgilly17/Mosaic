@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   plugins.conform-nvim = {
     enable = pkgs.lib.mkDefault true;
     notifyOnError = pkgs.lib.mkDefault true;
@@ -19,7 +23,7 @@
     };
   };
 
-  extraConfigLua = ''
+  extraConfigLua = pkgs.lib.optionals config.plugins.conform.enable ''
     local conform = require("conform")
     local notify = require("notify")
 
@@ -59,4 +63,32 @@
       bang = true,
     })
   '';
+
+  keymaps = pkgs.mkIf config.plugins.conform.enable [
+    /*
+    =============================================
+    =              Code (Conform)               =
+    =============================================
+    */
+
+    {
+      mode = "n";
+      key = "<leader>cf";
+      action = "<cmd>lua require('conform').format()<cr>";
+      options = {
+        silent = true;
+        desc = "Format Buffer";
+      };
+    }
+
+    {
+      mode = "v";
+      key = "<leader>cF";
+      action = "<cmd>lua require('conform').format()<cr>";
+      options = {
+        silent = true;
+        desc = "Format Lines";
+      };
+    }
+  ];
 }
