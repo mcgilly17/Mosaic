@@ -11,7 +11,7 @@
     keymaps = pkgs.lib.mkDefault {
       #Keys added to whichkey too
       addFile = "<leader>ha";
-      toggleQuickMenu = "<C-e>";
+      toggleQuickMenu = "<leader>hm";
       navFile = {
         "1" = "<leader>h1";
         "2" = "<leader>h2";
@@ -31,7 +31,7 @@
       icon = "󱡁";
     }
     {
-      __unkeyed = "<leader>he";
+      __unkeyed = "<leader>hm";
       mode = [
         "n"
       ];

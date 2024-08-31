@@ -74,12 +74,6 @@
         }
 
         {
-          __unkeyed-1 = "<leader>S";
-          mode = "n";
-          group = "+surround";
-          icon = "";
-        }
-        {
           __unkeyed-1 = "<leader><Tab>";
           mode = "n";
           group = "+tabs";
@@ -97,30 +91,6 @@
           group = "+windows";
         }
 
-        # Code Configs
-        {
-          __unkeyed-1 = "<leader>cs";
-          mode = [
-            "n"
-          ];
-          group = "+swap";
-        }
-        {
-          __unkeyed-1 = "<leader>csn";
-          mode = [
-            "n"
-          ];
-          group = "+next";
-        }
-        {
-          __unkeyed-1 = "<leader>csp";
-          mode = [
-            "n"
-          ];
-          group = "+previous";
-        }
-
-        # Markdown Configs
         {
           __unkeyed-1 = "<leader>ml";
           mode = [

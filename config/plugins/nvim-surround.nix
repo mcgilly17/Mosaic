@@ -28,5 +28,14 @@ in {
       require("nvim-surround").setup({})
       require("surround-ui").setup({})
     '';
+
+    plugins.which-key.settings.spec = [
+      {
+        __unkeyed-1 = "<leader>S";
+        mode = "n";
+        group = "+surround";
+        icon = "";
+      }
+    ];
   };
 }

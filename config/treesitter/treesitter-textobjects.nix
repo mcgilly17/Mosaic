@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   plugins.treesitter-textobjects = {
     enable = pkgs.lib.mkDefault true;
     select = {
@@ -214,4 +218,29 @@
       };
     };
   };
+
+  plugins.which-key.settings.spec = pkgs.lib.optionals config.plugins.treesitter-textobjects.enable [
+    # Code Configs
+    {
+      __unkeyed-1 = "<leader>cs";
+      mode = [
+        "n"
+      ];
+      group = "+swap";
+    }
+    {
+      __unkeyed-1 = "<leader>csn";
+      mode = [
+        "n"
+      ];
+      group = "+next";
+    }
+    {
+      __unkeyed-1 = "<leader>csp";
+      mode = [
+        "n"
+      ];
+      group = "+previous";
+    }
+  ];
 }
