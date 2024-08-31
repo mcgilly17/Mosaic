@@ -27,7 +27,7 @@ in {
     ];
 
     plugins.neotest = lib.mkIf config.plugins.mosaic-testing.enable {
-      enable = true;
+      enable = lib.mkDefault true;
       settings = {
         adapters = [
           ''
@@ -37,16 +37,16 @@ in {
           ''
         ];
         output = {
-          enabled = true;
-          open_on_run = true;
+          enabled = lib.mkDefault true;
+          open_on_run = lib.mkDefault true;
         };
-        summary = {enabled = true;};
+        summary = {enabled = lib.mkDefault true;};
       };
       adapters = {
-        bash.enable = true;
-        go.enable = true;
-        jest.enable = true;
-        playwright.enable = true;
+        bash.enable = lib.mkDefault true;
+        go.enable = lib.mkDefault true;
+        jest.enable = lib.mkDefault true;
+        playwright.enable = lib.mkDefault true;
       };
     };
 

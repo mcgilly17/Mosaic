@@ -16,7 +16,7 @@
       mode = [
         "n"
       ];
-      group = "+trouble";
+      group = "+quickfix/trouble";
     }
   ];
 
@@ -26,11 +26,6 @@
     =                    Trouble                =
     =============================================
     */
-    {
-      mode = "n";
-      key = "<leaderT";
-      action = "+diagnostics/quickfix";
-    }
     {
       mode = "n";
       key = "<leader>Tx";

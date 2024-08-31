@@ -22,6 +22,6 @@ in {
         };
       })
     ];
-    extraConfigLua = "require('stay-centered').setup({})";
+    extraConfigLua = lib.mkIf cfg.enable "require('stay-centered').setup({})";
   };
 }

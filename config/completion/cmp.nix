@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   plugins = {
     cmp-nvim-lsp = {enable = pkgs.lib.mkDefault true;}; # lsp
     cmp-buffer = {enable = pkgs.lib.mkDefault true;};
@@ -7,10 +11,10 @@
     cmp-cmdline = {enable = pkgs.lib.mkDefault false;}; # autocomplete for cmdline
     cmp = {
       enable = pkgs.lib.mkDefault true;
-      autoEnableSources = false;
+      autoEnableSources = pkgs.lib.mkDefault false;
       settings = {
         experimental = {
-          ghost_text = true;
+          ghost_text = pkgs.lib.mkDefault true;
         };
         # TODO: sort this raw stuff out
         mapping = {
@@ -103,39 +107,38 @@
       };
     };
   };
-  extraConfigLua = ''
-      luasnip = require("luasnip")
-      kind_icons = {
-        Text = "󰊄",
-        Method = "",
-        Function = "󰡱",
-        Constructor = "",
-        Field = "",
-        Variable = "󱀍",
-        Class = "",
-        Interface = "",
-        Module = "󰕳",
-        Property = "",
-        Unit = "",
-        Value = "",
-        Enum = "",
-        Keyword = "",
-        Snippet = "",
-        Color = "",
-        File = "",
-        Reference = "",
-        Folder = "",
-        EnumMember = "",
-        Constant = "",
-        Struct = "",
-        Event = "",
-        Operator = "",
-        TypeParameter = "",
-      }
+  extraConfigLua = pkgs.lib.mkIf config.plugins.cmp.enable ''
+    kind_icons = {
+      Text = "󰊄",
+      Method = "",
+      Function = "󰡱",
+      Constructor = "",
+      Field = "",
+      Variable = "󱀍",
+      Class = "",
+      Interface = "",
+      Module = "󰕳",
+      Property = "",
+      Unit = "",
+      Value = "",
+      Enum = "",
+      Keyword = "",
+      Snippet = "",
+      Color = "",
+      File = "",
+      Reference = "",
+      Folder = "",
+      EnumMember = "",
+      Constant = "",
+      Struct = "",
+      Event = "",
+      Operator = "",
+      TypeParameter = "",
+    }
 
     local cmp = require'cmp'
 
-      -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+    -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
       cmp.setup.cmdline({'/', "?" }, {
           sources = {
           { name = 'buffer' }
