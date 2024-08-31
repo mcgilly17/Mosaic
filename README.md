@@ -121,8 +121,7 @@ home.packages = [
 
 I am **attempting** to make Mosaic fully extensible. By that I mean, anyone
 should be able to bring Mosaic into their configs and with relative ease: add,
-remove and overwrite any setting or plugin. There are some limitations right now,
-mainly with extraConfigLua. If anyone knows how to make Mosaic more modular,
+remove and overwrite any setting or plugin. If anyone knows how to make Mosaic more modular,
 please don't hesitate to raise an issue / discussion / PR.
 
 ### Simple Extension
