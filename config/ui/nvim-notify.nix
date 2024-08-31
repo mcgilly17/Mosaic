@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   plugins.notify = {
     enable = pkgs.lib.mkDefault true;
     backgroundColour = "#000000";
@@ -8,7 +12,20 @@
     topDown = true;
   };
 
-  extraConfigLua = ''
+  keymaps = pkgs.lib.mkIf config.plugins.notify.enable [
+    {
+      mode = "n";
+      key = "<leader>un";
+      action = ''
+        <cmd>lua require("notify").dismiss({ silent = true, pending = true })<cr>
+      '';
+      options = {
+        desc = "Dismiss All Notifications";
+      };
+    }
+  ];
+
+  extraConfigLua = pkgs.lib.mkIf config.plugins.notify.enable ''
     local notify = require("notify")
     local filtered_message = { "No information available" }
 
