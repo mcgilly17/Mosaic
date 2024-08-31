@@ -47,7 +47,6 @@
           __unkeyed-1 = "<leader>g";
           mode = [
             "n"
-            "v"
           ];
           group = "+git";
         }
