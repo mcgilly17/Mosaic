@@ -6,39 +6,6 @@ _: {
   keymaps = [
     /*
     =============================================
-    =                  Telescope                =
-    =============================================
-    */
-    {
-      mode = "n";
-      key = "<leader>fp";
-      action = "<cmd>Telescope projects<CR>";
-      options = {
-        desc = "Projects";
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>sd";
-      action = "<cmd>Telescope diagnostics bufnr=0<cr>";
-      options = {
-        desc = "Document diagnostics";
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>st";
-      action = "<cmd>TodoTelescope<cr>";
-      options = {
-        silent = true;
-        desc = "Todo (Telescope)";
-      };
-    }
-
-    /*
-    =============================================
     =                     UI                    =
     =============================================
     */

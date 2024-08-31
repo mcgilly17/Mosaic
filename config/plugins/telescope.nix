@@ -1,42 +1,24 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   plugins.telescope = {
     enable = pkgs.lib.mkDefault true;
 
     extensions = {
       fzf-native = {
-        enable = true;
+        enable = pkgs.lib.mkDefaul true;
       };
       ui-select = {
         settings = {
           specific_opts = {
-            codeactions = true;
+            codeactions = pkgs.lib.mkDefault true;
           };
         };
       };
       undo = {
-        enable = true;
-      };
-    };
-
-    # If you'd prefer Telescope not to enter a normal-like mode when hitting escape (and instead exiting), you can map <Esc> to do so via:
-    settings = {
-      defaults = {
-        mappings = {
-          i = {
-            "<esc>" = {
-              __raw = ''
-                function(...)
-                  return require("telescope.actions").close(...)
-                end'';
-            };
-            "<C-j>" = {
-              __raw = "require('telescope.actions').move_selection_next";
-            };
-            "<C-k>" = {
-              __raw = "require('telescope.actions').move_selection_previous";
-            };
-          };
-        };
+        enable = pkgs.lib.mkDefault true;
       };
     };
 
@@ -126,8 +108,29 @@
         options.desc = "Resume";
       };
     };
+
+    settings = {
+      defaults = {
+        mappings = {
+          i = {
+            "<esc>" = {
+              __raw = ''
+                function(...)
+                  return require("telescope.actions").close(...)
+                end'';
+            };
+            "<C-j>" = {
+              __raw = "require('telescope.actions').move_selection_next";
+            };
+            "<C-k>" = {
+              __raw = "require('telescope.actions').move_selection_previous";
+            };
+          };
+        };
+      };
+    };
   };
-  extraConfigLua = ''
+  extraConfigLua = pkgs.lib.mkIf config.plugins.telescope.enable ''
     local telescope = require('telescope')
     telescope.setup{
         pickers = {
@@ -137,4 +140,39 @@
         }
     }
   '';
+
+  keymaps = pkgs.lib.mkIf config.plugins.telescope.enable [
+    /*
+    =============================================
+    =                  Telescope                =
+    =============================================
+    */
+    {
+      mode = "n";
+      key = "<leader>fp";
+      action = "<cmd>Telescope projects<CR>";
+      options = {
+        desc = "Projects";
+      };
+    }
+
+    {
+      mode = "n";
+      key = "<leader>sd";
+      action = "<cmd>Telescope diagnostics bufnr=0<cr>";
+      options = {
+        desc = "Document diagnostics";
+      };
+    }
+
+    {
+      mode = "n";
+      key = "<leader>st";
+      action = "<cmd>TodoTelescope<cr>";
+      options = {
+        silent = true;
+        desc = "Todo (Telescope)";
+      };
+    }
+  ];
 }
