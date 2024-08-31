@@ -21,37 +21,12 @@ _: {
     }
 
     {
-      mode = "n";
-      key = "<leader>cf";
-      action = "<cmd>Spectre<cr>";
-      options = {
-        desc = "Find / Replace";
-      };
-    }
-    {
       mode = "v";
       key = "<leader>cF";
       action = "<cmd>lua require('conform').format()<cr>";
       options = {
         silent = true;
         desc = "Format Lines";
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>co";
-      action = "<cmd>TSToolsOrganizeImports<cr>";
-      options = {
-        desc = "Organize Imports";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>cR";
-      action = "<cmd>TSToolsRemoveUnusedImports<cr>";
-      options = {
-        desc = "Remove Unused Imports";
       };
     }
 

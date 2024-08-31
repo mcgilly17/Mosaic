@@ -1,12 +1,10 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   plugins.typescript-tools = {
     enable = pkgs.lib.mkDefault true;
-    onAttach = ''
-      function(client, bufnr)
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.documentRangeFormattingProvider = false
-      end
-    '';
     settings = {
       tsserverFilePreferences = {
         # Inlay Hints
@@ -20,5 +18,30 @@
         includeInlayEnumMemberValueHints = pkgs.lib.mkDefault true;
       };
     };
+    onAttach = pkgs.lib.mkIf config.plugins.typescript-tools.enable ''
+      function(client, bufnr)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+      end
+    '';
   };
+
+  keymaps = pkgs.lib.optionals config.plugins.typescript-tools.enable [
+    {
+      mode = "n";
+      key = "<leader>co";
+      action = "<cmd>TSToolsOrganizeImports<cr>";
+      options = {
+        desc = "Organize Imports";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>cR";
+      action = "<cmd>TSToolsRemoveUnusedImports<cr>";
+      options = {
+        desc = "Remove Unused Imports";
+      };
+    }
+  ];
 }
