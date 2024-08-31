@@ -4,10 +4,10 @@
   ...
 }: {
   # Manually installed plugins are managed here
-  plugins.mosaic-testing.enable = pkgs.lib.mkDefault true;
-
-  plugs = {
-    surround.enable = pkgs.lib.mkDefault true;
+  plugins = {
+    mosaic-testing.enable = pkgs.lib.mkDefault true;
+    precognition.enable = pkgs.lib.mkDefault true;
+    mosaic-surround.enable = pkgs.lib.mkDefault true;
     ultimate-autopair.enable = pkgs.lib.mkDefault true;
     sidebar.enable = pkgs.lib.mkDefault true;
     stay-centered.enable = pkgs.lib.mkDefault true;

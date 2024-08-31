@@ -17,6 +17,8 @@
     ./tmux-navigator.nix # TMUX navigation in neovim
     ./todo-comments.nix # sweet hiighlighting for todos etc
     ./toggleterm.nix # terminal management in neovim
+    ./refactoring.nix # primeagen's refactoring plugin
+    ./precognition.nix # visible movement options
     ./ultimate-autopair.nix # plugin that auto pairs parenthesis/braces/brackets etc
     ./wilder.nix # plugin that enables autocompletion for cmdline and search
   ];

@@ -4,9 +4,9 @@
   config,
   ...
 }: let
-  cfg = config.plugs.stay-centered;
+  cfg = config.plugins.stay-centered;
 in {
-  options.plugs.stay-centered.enable = lib.mkEnableOption "stay-centered setup";
+  options.plugins.stay-centered.enable = lib.mkEnableOption "stay-centered setup";
 
   config = lib.mkIf cfg.enable {
     extraPlugins = with pkgs.vimUtils; [

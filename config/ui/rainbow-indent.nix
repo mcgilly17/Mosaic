@@ -4,10 +4,10 @@
   lib,
   ...
 }: let
-  cfg = config.plugs.rainbow-indent;
+  cfg = config.plugins.rainbow-indent;
 in {
   # Make rainbow indent optional, as well as rainbow delimiters
-  options.plugs.rainbow-indent.enable = lib.mkEnableOption "rainbow Indents";
+  options.plugins.rainbow-indent.enable = lib.mkEnableOption "rainbow Indents";
 
   config = lib.mkIf cfg.enable {
     # install rainbow delimiters

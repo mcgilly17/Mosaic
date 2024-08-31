@@ -4,9 +4,9 @@
   lib,
   ...
 }: let
-  cfg = config.plugs.surround;
+  cfg = config.plugins.mosaic-surround;
 in {
-  options.plugs.surround.enable = lib.mkEnableOption "surround setup";
+  options.plugins.mosaic-surround.enable = lib.mkEnableOption "surround setup";
 
   config = lib.mkIf cfg.enable {
     extraPlugins = with pkgs.vimPlugins; [

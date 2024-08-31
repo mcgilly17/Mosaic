@@ -4,9 +4,9 @@
   lib,
   ...
 }: let
-  cfg = config.plugs.sidebar;
+  cfg = config.plugins.sidebar;
 in {
-  options.plugs.sidebar.enable = lib.mkEnableOption "sidebar setup";
+  options.plugins.sidebar.enable = lib.mkEnableOption "sidebar setup";
 
   config = lib.mkIf cfg.enable {
     extraPlugins = with pkgs.vimUtils; [

@@ -4,9 +4,9 @@
   lib,
   ...
 }: let
-  cfg = config.plugs.ultimate-autopair;
+  cfg = config.plugins.ultimate-autopair;
 in {
-  options.plugs.ultimate-autopair.enable = lib.mkEnableOption "ultimate-autopair setup";
+  options.plugins.ultimate-autopair.enable = lib.mkEnableOption "ultimate-autopair setup";
 
   config = lib.mkIf cfg.enable {
     extraPlugins = with pkgs.vimUtils; [
