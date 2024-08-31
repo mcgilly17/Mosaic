@@ -38,7 +38,7 @@
       };
     };
   };
-  extraConfigLua = lib.optionals config.plugins.lsp.enable ''
+  extraConfigLua = lib.mkIf config.plugins.lsp.enable ''
     local _border = "rounded"
 
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(

@@ -8,7 +8,7 @@
 
     extensions = {
       fzf-native = {
-        enable = pkgs.lib.mkDefaul true;
+        enable = pkgs.lib.mkDefault true;
       };
       ui-select = {
         settings = {

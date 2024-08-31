@@ -60,7 +60,7 @@ in {
       }
     ];
 
-    keymaps = lib.optionals config.plugins.mosaic-testing.enable [
+    keymaps = lib.mkIf config.plugins.mosaic-testing.enable [
       /*
       =============================================
       =                   NeoTest                 =

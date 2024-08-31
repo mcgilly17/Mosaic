@@ -22,6 +22,18 @@ in {
         };
       })
     ];
+
+    keymaps = [
+      {
+        mode = "n";
+        key = "<leader>ue";
+        action = ":SidebarNvimToggle<CR>";
+        options = {
+          desc = "Toggle Explorer";
+          silent = true;
+        };
+      }
+    ];
     extraConfigLua = ''
       local sidebar = require("sidebar-nvim")
       sidebar.setup({

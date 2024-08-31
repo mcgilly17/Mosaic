@@ -26,7 +26,7 @@
     '';
   };
 
-  keymaps = pkgs.lib.optionals config.plugins.typescript-tools.enable [
+  keymaps = pkgs.lib.mkIf config.plugins.typescript-tools.enable [
     {
       mode = "n";
       key = "<leader>co";

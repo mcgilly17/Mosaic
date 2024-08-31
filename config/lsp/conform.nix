@@ -23,7 +23,7 @@
     };
   };
 
-  extraConfigLua = pkgs.lib.optionals config.plugins.conform.enable ''
+  extraConfigLua = pkgs.lib.mkIf config.plugins.conform-nvim.enable ''
     local conform = require("conform")
     local notify = require("notify")
 
@@ -64,7 +64,7 @@
     })
   '';
 
-  keymaps = pkgs.mkIf config.plugins.conform.enable [
+  keymaps = pkgs.lib.mkIf config.plugins.conform-nvim.enable [
     /*
     =============================================
     =              Code (Conform)               =

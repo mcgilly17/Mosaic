@@ -12,16 +12,6 @@ _: {
 
     {
       mode = "n";
-      key = "<leader>ue";
-      action = ":SidebarNvimToggle<CR>";
-      options = {
-        desc = "Toggle Explorer";
-        silent = true;
-      };
-    }
-
-    {
-      mode = "n";
       key = "<leader>un";
       action = ''
         <cmd>lua require("notify").dismiss({ silent = true, pending = true })<cr>
