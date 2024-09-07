@@ -22,12 +22,22 @@
         "svelte"
         "graphql"
         "bash"
+        "nix"
         "lua"
         "vim"
         "dockerfile"
         "gitignore"
         "query"
       ];
+      incremental_selection = {
+        enable = true;
+        keymaps = {
+          init_selection = ",,"; #set to `false` to disable one of the mappings;
+          node_incremental = ",+";
+          scope_incremental = ",s";
+          node_decremental = ",-";
+        };
+      };
     };
     folding = pkgs.lib.mkDefault true;
     nixvimInjections = pkgs.lib.mkDefault true;
