@@ -120,6 +120,10 @@
           query = "@call.outer";
           desc = "Next function call start";
         };
+        "]=" = {
+          query = "@assignment.outer";
+          desc = "Next assignement start";
+        };
         "]m" = {
           query = "@function.outer";
           desc = "Next method/function def start";
@@ -163,6 +167,10 @@
         "[f" = {
           query = "@call.outer";
           desc = "Prev function call start";
+        };
+        "[=" = {
+          query = "@assignment.outer";
+          desc = "Prev assignement start";
         };
         "[m" = {
           query = "@function.outer";
