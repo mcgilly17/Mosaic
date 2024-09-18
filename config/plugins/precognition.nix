@@ -5,7 +5,7 @@
   ...
 }: {
   plugins.precognition = {
-    enable = lib.mkDefault true;
+    enable = lib.mkDefault false;
   };
   keymaps = [
     {
