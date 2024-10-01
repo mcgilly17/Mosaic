@@ -1,8 +1,4 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   # Manually installed plugins are managed here
   plugins = {
     mosaic-testing.enable = pkgs.lib.mkDefault true;

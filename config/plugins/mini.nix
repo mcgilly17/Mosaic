@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  plugins.web-devicons.enable = true;
   plugins.mini = {
     enable = pkgs.lib.mkDefault true;
     modules = pkgs.lib.mkDefault {
