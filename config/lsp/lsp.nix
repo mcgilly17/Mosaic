@@ -18,7 +18,7 @@
         html.enable = pkgs.lib.mkDefault true;
         htmx.enable = pkgs.lib.mkDefault true;
         yamlls.enable = pkgs.lib.mkDefault true;
-        lua-ls = {
+        lua_ls = {
           enable = pkgs.lib.mkDefault true;
           settings = {
             Lua = {
@@ -31,11 +31,11 @@
           };
         };
         marksman.enable = pkgs.lib.mkDefault true;
-        nil-ls.enable = pkgs.lib.mkDefault true;
+        nil_ls.enable = pkgs.lib.mkDefault true;
         nixd.enable = pkgs.lib.mkDefault true;
         eslint.enable = pkgs.lib.mkDefault true;
-        emmet-ls.enable = pkgs.lib.mkDefault true;
-        ruff-lsp.enable = pkgs.lib.mkDefault true;
+        emmet_ls.enable = pkgs.lib.mkDefault true;
+        ruff_lsp.enable = pkgs.lib.mkDefault true;
       };
     };
   };
