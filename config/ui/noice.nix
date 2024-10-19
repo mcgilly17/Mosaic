@@ -16,6 +16,9 @@
         view = "mini";
       };
     };
+    presets = {
+      inc_rename = true;
+    };
     popupmenu = {
       enabled = true;
       backend = "nui";
