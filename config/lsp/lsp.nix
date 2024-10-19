@@ -5,6 +5,7 @@
   ...
 }: {
   plugins = {
+    lsp-format.enable = lib.mkIf (!config.plugins.conform-nvim.enable) true;
     lsp = {
       enable = pkgs.lib.mkDefault true;
       capabilities = "offsetEncoding = 'utf-16'";
