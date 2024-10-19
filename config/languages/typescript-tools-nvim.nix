@@ -4,7 +4,7 @@
   ...
 }: {
   plugins.typescript-tools = {
-    enable = pkgs.lib.mkDefault true;
+    enable = pkgs.lib.mkDefault false;
     settings = {
       tsserverFilePreferences = {
         # Inlay Hints

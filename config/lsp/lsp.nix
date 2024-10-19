@@ -31,6 +31,44 @@
           };
         };
         marksman.enable = pkgs.lib.mkDefault true;
+        ts_ls = {
+          enable = pkgs.lib.mkDefault true;
+          autostart = true;
+          filetypes = [
+            "javascript"
+            "javascriptreact"
+            "typescript"
+            "typescriptreact"
+          ];
+          extraOptions = {
+            settings = {
+              javascript = {
+                inlayHints = {
+                  includeInlayEnumMemberValueHints = true;
+                  includeInlayFunctionLikeReturnTypeHints = true;
+                  includeInlayFunctionParameterTypeHints = true;
+                  includeInlayParameterNameHints = "all";
+                  includeInlayParameterNameHintsWhenArgumentMatchesName = true;
+                  includeInlayPropertyDeclarationTypeHints = true;
+                  includeInlayVariableTypeHints = true;
+                  includeInlayVariableTypeHintsWhenTypeMatchesName = true;
+                };
+              };
+              typescript = {
+                inlayHints = {
+                  includeInlayEnumMemberValueHints = true;
+                  includeInlayFunctionLikeReturnTypeHints = true;
+                  includeInlayFunctionParameterTypeHints = true;
+                  includeInlayParameterNameHints = "all";
+                  includeInlayParameterNameHintsWhenArgumentMatchesName = true;
+                  includeInlayPropertyDeclarationTypeHints = true;
+                  includeInlayVariableTypeHints = true;
+                  includeInlayVariableTypeHintsWhenTypeMatchesName = true;
+                };
+              };
+            };
+          };
+        };
         nil_ls.enable = pkgs.lib.mkDefault true;
         nixd.enable = pkgs.lib.mkDefault true;
         eslint.enable = pkgs.lib.mkDefault true;
