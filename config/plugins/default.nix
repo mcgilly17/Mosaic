@@ -1,5 +1,6 @@
 {
   imports = [
+    ./avante.nix # Cursor style AI Code co-pilot
     ./better-escape.nix # plugin to enable escaping insert mode with keys like jj and reducing the delay
     ./dap.nix # debugger
     ./hop.nix
