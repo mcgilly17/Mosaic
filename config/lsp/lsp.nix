@@ -76,6 +76,65 @@
         emmet_ls.enable = pkgs.lib.mkDefault true;
         ruff_lsp.enable = pkgs.lib.mkDefault true;
       };
+      keymaps = {
+        silent = true;
+        lspBuf = {
+          gd = {
+            action = "definition";
+            desc = "Goto Definition";
+          };
+          gD = {
+            action = "declaration";
+            desc = "Goto Declaration";
+          };
+          gI = {
+            action = "implementation";
+            desc = "Goto Implementation";
+          };
+          ga = {
+            action = "type_definition";
+            desc = "Type Definition";
+          };
+          gr = {
+            action = "references";
+            desc = "Goto References";
+          };
+          H = {
+            action = "hover";
+            desc = "Hover";
+          };
+          "<leader>lw" = {
+            action = "workspace_symbol";
+            desc = "Workspace Symbol";
+          };
+          "<leader>lr" = {
+            action = "rename";
+            desc = "Rename";
+          };
+          "<leader>la" = {
+            action = "code_action";
+            desc = "Code Action";
+          };
+          "<leader>ls" = {
+            action = "signature_help";
+            desc = "Signature Help";
+          };
+        };
+        diagnostic = {
+          "<leader>ld" = {
+            action = "open_float";
+            desc = "Line Diagnostics";
+          };
+          "[d" = {
+            action = "goto_next";
+            desc = "Next Diagnostic";
+          };
+          "]d" = {
+            action = "goto_prev";
+            desc = "Previous Diagnostic";
+          };
+        };
+      };
     };
   };
   extraConfigLua = lib.mkIf config.plugins.lsp.enable ''
@@ -114,97 +173,95 @@
     }
   ];
 
-  keymaps = lib.mkIf config.plugins.lsp.enable [
-    /*
-    =============================================
-    =                LSP Keymaps                =
-    =============================================
-    */
-
-    {
-      mode = "n";
-      key = "<leader>la";
-      action = "<cmd>Lspsaga code_action<CR>";
-      options = {
-        desc = "Code Action";
-        silent = true;
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>ld";
-      action = "<cmd>Lspsaga peek_type_definition<CR>";
-      options = {
-        desc = "Type Definition";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>lD";
-      action = "<cmd>Lspsaga finder def<CR>";
-      options = {
-        desc = "Goto Definition";
-        silent = true;
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>lh";
-      action = "<cmd>Lspsaga hover_doc<CR>";
-      options = {
-        desc = "Hover";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>lI";
-      action = "<cmd>Lspsaga finder imp<CR>";
-      options = {
-        desc = "Goto Implementation";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>ll";
-      action = "<cmd>Lspsaga show_line_diagnostics<CR>";
-      options = {
-        desc = "Line Diagnostics";
-        silent = true;
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>lo";
-      action = "<cmd>Lspsaga outline<CR>";
-      options = {
-        desc = "Outline";
-        silent = true;
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>lr";
-      action = "<cmd>Lspsaga rename<CR>";
-      options = {
-        desc = "Rename";
-        silent = true;
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>lR";
-      action = "<cmd>Lspsaga finder ref<CR>";
-      options = {
-        desc = "Goto References";
-        silent = true;
-      };
-    }
-  ];
+  #   =============================================
+  #   =                LSP Keymaps                =
+  #   =============================================
+  #   */
+  #
+  #   {
+  #     mode = "n";
+  #     key = "<leader>la";
+  #     action = "<cmd>Lspsaga code_action<CR>";
+  #     options = {
+  #       desc = "Code Action";
+  #       silent = true;
+  #     };
+  #   }
+  #
+  #   {
+  #     mode = "n";
+  #     key = "<leader>ld";
+  #     action = "<cmd>Lspsaga peek_type_definition<CR>";
+  #     options = {
+  #       desc = "Type Definition";
+  #       silent = true;
+  #     };
+  #   }
+  #   {
+  #     mode = "n";
+  #     key = "<leader>lD";
+  #     action = "<cmd>Lspsaga finder def<CR>";
+  #     options = {
+  #       desc = "Goto Definition";
+  #       silent = true;
+  #     };
+  #   }
+  #
+  #   {
+  #     mode = "n";
+  #     key = "<leader>lh";
+  #     action = "<cmd>Lspsaga hover_doc<CR>";
+  #     options = {
+  #       desc = "Hover";
+  #       silent = true;
+  #     };
+  #   }
+  #   {
+  #     mode = "n";
+  #     key = "<leader>lI";
+  #     action = "<cmd>Lspsaga finder imp<CR>";
+  #     options = {
+  #       desc = "Goto Implementation";
+  #       silent = true;
+  #     };
+  #   }
+  #   {
+  #     mode = "n";
+  #     key = "<leader>ll";
+  #     action = "<cmd>Lspsaga show_line_diagnostics<CR>";
+  #     options = {
+  #       desc = "Line Diagnostics";
+  #       silent = true;
+  #     };
+  #   }
+  #
+  #   {
+  #     mode = "n";
+  #     key = "<leader>lo";
+  #     action = "<cmd>Lspsaga outline<CR>";
+  #     options = {
+  #       desc = "Outline";
+  #       silent = true;
+  #     };
+  #   }
+  #
+  #   {
+  #     mode = "n";
+  #     key = "<leader>lr";
+  #     action = "<cmd>Lspsaga rename<CR>";
+  #     options = {
+  #       desc = "Rename";
+  #       silent = true;
+  #     };
+  #   }
+  #   {
+  #     mode = "n";
+  #     key = "<leader>lR";
+  #     action = "<cmd>Lspsaga finder ref<CR>";
+  #     options = {
+  #       desc = "Goto References";
+  #       silent = true;
+  #     };
+  #   }
+  # ];
 }
