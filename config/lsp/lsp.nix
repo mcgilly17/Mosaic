@@ -13,6 +13,7 @@
         bashls.enable = pkgs.lib.mkDefault true;
         dockerls.enable = pkgs.lib.mkDefault true;
         jsonls.enable = pkgs.lib.mkDefault true;
+        graphql.enable = pkgs.lib.mkDefault true;
         pyright.enable = pkgs.lib.mkDefault true;
         tailwindcss.enable = pkgs.lib.mkDefault true;
         cssls.enable = pkgs.lib.mkDefault true;
