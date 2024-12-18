@@ -5,6 +5,7 @@
       nix = ["statix"];
       lua = ["selene"];
       python = ["flake8"];
+      prisma = ["prisma-lint"];
       javascript = ["eslint_d"];
       javascriptreact = ["eslint_d"];
       markdown = ["markdownlint-cli2"];
