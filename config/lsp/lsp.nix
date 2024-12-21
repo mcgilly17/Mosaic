@@ -17,7 +17,10 @@
         prismals.package = null;
         graphql.enable = pkgs.lib.mkDefault true;
         pyright.enable = pkgs.lib.mkDefault true;
-        tailwindcss.enable = pkgs.lib.mkDefault true;
+        tailwindcss = {
+          enable = pkgs.lib.mkDefault true;
+          filetypes = ["html" "vue" "typescriptreact" "javascriptreact"];
+        };
         cssls.enable = pkgs.lib.mkDefault true;
         html.enable = pkgs.lib.mkDefault true;
         htmx.enable = pkgs.lib.mkDefault true;
@@ -77,7 +80,7 @@
         nixd.enable = pkgs.lib.mkDefault true;
         eslint.enable = pkgs.lib.mkDefault true;
         emmet_ls.enable = pkgs.lib.mkDefault true;
-        ruff_lsp.enable = pkgs.lib.mkDefault true;
+        ruff.enable = pkgs.lib.mkDefault true;
       };
       keymaps = {
         silent = true;
