@@ -47,6 +47,10 @@
         action = "buffers";
         options.desc = "Buffers";
       };
+      "<leader>fa" = {
+        action = "git_files";
+        options.desc = "All files in repo";
+      };
       "<C-p>" = {
         action = "git_files";
         options.desc = "Search git files";
