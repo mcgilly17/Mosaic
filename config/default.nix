@@ -8,7 +8,7 @@
     stay-centered.enable = pkgs.lib.mkDefault true;
     dressing.enable = pkgs.lib.mkDefault true;
     nui.enable = pkgs.lib.mkDefault true;
-    rainbow-indent.enable = pkgs.lib.mkDefault true;
+    rainbow-indent.enable = pkgs.lib.mkDefault false;
   };
 
   imports = [

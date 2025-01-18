@@ -18,10 +18,10 @@ in {
         pname = "indent-rainbowline.nvim";
         version = "0.1.0";
         src = fetchFromGitHub {
-          owner = "ArkieSoft";
+          owner = "TheGLander";
           repo = "indent-rainbowline.nvim";
-          rev = "4977a9735583f13d5c1114f373342745dd35b3b4";
-          sha256 = "/YCovZOi+SbXHDnvazQAnqSL8ygaJzmHm6RzvlQ+phI=";
+          rev = "572e8157de85d7af3f0085b5c74c059518900649";
+          sha256 = "sha256-dSXNtbyPY5ZWT/RCYsmy/swgErJm7zSfaDd5J+15wYc=";
         };
       })
     ];
