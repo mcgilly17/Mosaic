@@ -80,7 +80,6 @@
         nixd.enable = pkgs.lib.mkDefault true;
         eslint.enable = pkgs.lib.mkDefault true;
         emmet_ls.enable = pkgs.lib.mkDefault true;
-        ruff.enable = pkgs.lib.mkDefault true;
       };
       keymaps = {
         silent = true;
