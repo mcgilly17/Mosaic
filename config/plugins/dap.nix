@@ -19,18 +19,18 @@
         texthl = "DapLogPoint";
       };
     };
-    extensions = pkgs.lib.mkDefault {
-      dap-ui = {
-        enable = true;
-        floating.mappings = {
-          close = ["<ESC>" "q"];
-        };
+    configurations = {
+    };
+  };
+  plugins.dap-ui = pkgs.lib.mkDefault {
+    enable = true;
+    settings = {
+      floating.mappings = {
+        close = ["<ESC>" "q"];
       };
       dap-virtual-text = {
         enable = true;
       };
-    };
-    configurations = {
     };
   };
 
