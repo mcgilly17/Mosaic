@@ -15,7 +15,7 @@
         jsonls.enable = pkgs.lib.mkDefault true;
         prismals.enable = pkgs.lib.mkDefault true;
         prismals.package = null;
-        graphql.enable = pkgs.lib.mkDefault true;
+        graphql.enable = pkgs.lib.mkDefault false;
         pyright.enable = pkgs.lib.mkDefault true;
         tailwindcss = {
           enable = pkgs.lib.mkDefault true;
