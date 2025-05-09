@@ -6,20 +6,51 @@
   plugins.harpoon = {
     enable = pkgs.lib.mkDefault true;
     enableTelescope = pkgs.lib.mkDefault true;
-    keymapsSilent = pkgs.lib.mkDefault true;
-    saveOnToggle = pkgs.lib.mkDefault true;
-    keymaps = pkgs.lib.mkDefault {
-      #Keys added to whichkey too
-      addFile = "<leader>ha";
-      toggleQuickMenu = "<leader>hm";
-      navFile = {
-        "1" = "<leader>h1";
-        "2" = "<leader>h2";
-        "3" = "<leader>h3";
-        "4" = "<leader>h4";
-      };
+    autoLoad = pkgs.lib.mkDefault true;
+    #TODO: this is hideous, need to check it actually works.
+    settings.settings = {
+      save_on_toggle = true;
+      sync_on_ui_close = true;
     };
   };
+  keymaps = pkgs.lib.mkIf config.plugins.harpoon.enable [
+    {
+      mode = "n";
+      key = "<leader>ha";
+      options.desc = "Add file";
+      action.__raw = "function() require'harpoon':list():add() end";
+    }
+    {
+      mode = "n";
+      key = "<leader>hm";
+      options.desc = "Quick Menu";
+      action.__raw = "function() require'harpoon'.ui:toggle_quick_menu(require'harpoon':list()) end";
+    }
+    {
+      mode = "n";
+      key = "<leader>h1";
+      options.desc = "1";
+      action.__raw = "function() require'harpoon':list():select(1) end";
+    }
+    {
+      mode = "n";
+      key = "<leader>h2";
+      options.desc = "2";
+      action.__raw = "function() require'harpoon':list():select(2) end";
+    }
+    {
+      mode = "n";
+      key = "<leader>h3";
+      options.desc = "3";
+      action.__raw = "function() require'harpoon':list():select(3) end";
+    }
+    {
+      mode = "n";
+      key = "<leader>h4";
+      options.desc = "4";
+      action.__raw = "function() require'harpoon':list():select(4) end";
+    }
+  ];
   plugins.which-key.settings.spec = pkgs.lib.optionals config.plugins.which-key.enable [
     # Harpoon Configs
     {
