@@ -2,20 +2,22 @@
   plugins.lualine = {
     enable = pkgs.lib.mkDefault true;
     settings = {
-      globalstatus = pkgs.lib.mkDefault true;
-      disabledFiletypes.statusline = [
-        "alpha"
-      ];
-      ignoreFocus = ["neo-tree"];
+      options = {
+        globalstatus = pkgs.lib.mkDefault true;
+        disabled_filetypes = {
+          statusline = ["alpha"];
+        };
+        ignore_focus = ["neo-tree"];
+        component_separators = {
+          left = "|";
+          right = "|";
+        };
+        section_separators = {
+          left = ""; #
+          right = ""; #  █
+        };
+      };
       extensions = ["fzf"];
-      componentSeparators = {
-        left = "|";
-        right = "|";
-      };
-      sectionSeparators = {
-        left = ""; # 
-        right = ""; #  █
-      };
       sections = {
         lualine_a = [
           {

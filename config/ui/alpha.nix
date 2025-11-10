@@ -2,12 +2,13 @@
   plugins.alpha = {
     enable = pkgs.lib.mkDefault true;
     theme = null;
-    layout = let
-      padding = val: {
-        type = "padding";
-        inherit val;
-      };
-    in [
+    settings = {
+      layout = let
+        padding = val: {
+          type = "padding";
+          inherit val;
+        };
+      in [
       (padding 4)
       {
         opts = {
@@ -221,6 +222,7 @@
           hl_shortcut = "Keyword";
         };
       }
-    ];
+      ];
+    };
   };
 }

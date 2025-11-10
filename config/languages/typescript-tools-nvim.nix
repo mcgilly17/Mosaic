@@ -18,12 +18,6 @@
         includeInlayEnumMemberValueHints = pkgs.lib.mkDefault true;
       };
     };
-    onAttach = pkgs.lib.mkIf config.plugins.typescript-tools.enable ''
-      function(client, bufnr)
-        client.server_capabilities.documentFormattingProvider = false
-        client.server_capabilities.documentRangeFormattingProvider = false
-      end
-    '';
   };
 
   keymaps = pkgs.lib.mkIf config.plugins.typescript-tools.enable [

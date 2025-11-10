@@ -5,10 +5,11 @@
 }: {
   plugins.treesitter-textobjects = {
     enable = pkgs.lib.mkDefault true;
-    select = {
-      enable = pkgs.lib.mkDefault true;
-      lookahead = pkgs.lib.mkDefault true;
-      keymaps = {
+    settings = {
+      select = {
+        enable = pkgs.lib.mkDefault true;
+        lookahead = pkgs.lib.mkDefault true;
+        keymaps = {
         # Assignments
         "a=" = {
           query = "@assignment.outer";
@@ -110,12 +111,12 @@
           query = "@comment.outer";
           desc = "Select outer part of a Comment";
         };
+        };
       };
-    };
-    move = {
-      enable = pkgs.lib.mkDefault true;
-      setJumps = pkgs.lib.mkDefault true; # whether to set jumps in the jumplist
-      gotoNextStart = {
+      move = {
+        enable = pkgs.lib.mkDefault true;
+        set_jumps = pkgs.lib.mkDefault true; # whether to set jumps in the jumplist
+        goto_next_start = {
         "]f" = {
           query = "@call.outer";
           desc = "Next function call start";
@@ -140,8 +141,8 @@
           query = "@loop.outer";
           desc = "Next loop start";
         };
-      };
-      gotoNextEnd = {
+        };
+        goto_next_end = {
         "]F" = {
           query = "@call.outer";
           desc = "Next function call end";
@@ -162,8 +163,8 @@
           query = "@loop.outer";
           desc = "Next loop end";
         };
-      };
-      gotoPreviousStart = {
+        };
+        goto_previous_start = {
         "[f" = {
           query = "@call.outer";
           desc = "Prev function call start";
@@ -188,8 +189,8 @@
           query = "@loop.outer";
           desc = "Prev loop start";
         };
-      };
-      gotoPreviousEnd = {
+        };
+        goto_previous_end = {
         "[F" = {
           query = "@call.outer";
           desc = "Prev function call end";
@@ -210,19 +211,20 @@
           query = "@loop.outer";
           desc = "Prev loop end";
         };
+        };
       };
-    };
-    swap = {
-      enable = pkgs.lib.mkDefault true;
-      swapNext = {
-        "<leader>cSna" = "@parameter.inner"; # swap parameters/argument with next
-        "<leader>cSn:" = "@property.outer"; # swap object property with next
-        "<leader>cSnm" = "@function.outer"; # swap function with next
-      };
-      swapPrevious = {
-        "<leader>cSpa" = "@parameter.inner"; # swap parameters/argument with prev
-        "<leader>cSp:" = "@property.outer"; # swap object property with prev
-        "<leader>cSpm" = "@function.outer"; # swap function with previous
+      swap = {
+        enable = pkgs.lib.mkDefault true;
+        swap_next = {
+          "<leader>cSna" = "@parameter.inner"; # swap parameters/argument with next
+          "<leader>cSn:" = "@property.outer"; # swap object property with next
+          "<leader>cSnm" = "@function.outer"; # swap function with next
+        };
+        swap_previous = {
+          "<leader>cSpa" = "@parameter.inner"; # swap parameters/argument with prev
+          "<leader>cSp:" = "@property.outer"; # swap object property with prev
+          "<leader>cSpm" = "@function.outer"; # swap function with previous
+        };
       };
     };
   };
