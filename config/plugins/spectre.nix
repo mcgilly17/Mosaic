@@ -4,7 +4,9 @@
   ...
 }: {
   plugins.spectre = {
-    enable = pkgs.lib.mkDefault true;
+    # Disabled: spectre_oxi fails to link against LuaJIT on macOS arm64
+    # See: https://github.com/nvim-pack/nvim-spectre/issues/185
+    enable = pkgs.lib.mkDefault false;
     settings = {
       replace = pkgs.lib.mkDefault "sed";
       use_trouble_qf = true;
