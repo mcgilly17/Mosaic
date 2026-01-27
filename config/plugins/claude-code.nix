@@ -42,5 +42,17 @@
       desc = "Send to Claude";
       icon = "󰚩";
     }
+    {
+      __unkeyed-1 = "<leader>ca";
+      __unkeyed-2 = "<cmd>ClaudeCodeDiffAccept<cr>";
+      desc = "Accept Claude diff";
+      icon = "󰄬";
+    }
+    {
+      __unkeyed-1 = "<leader>cd";
+      __unkeyed-2 = "<cmd>ClaudeCodeDiffDeny<cr>";
+      desc = "Deny Claude diff";
+      icon = "󰜺";
+    }
   ];
 }
