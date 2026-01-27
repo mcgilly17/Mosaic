@@ -37,7 +37,7 @@
             };
           };
         };
-        marksman.enable = pkgs.lib.mkDefault true;
+        marksman.enable = pkgs.lib.mkDefault false; # TODO: re-enable when Swift builds on macOS
         ts_ls = {
           enable = pkgs.lib.mkDefault true;
           autostart = true;

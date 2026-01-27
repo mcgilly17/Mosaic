@@ -1,6 +1,7 @@
 {
   imports = [
     ./avante.nix # Cursor style AI Code co-pilot
+    ./claude-code.nix # Claude Code CLI integration for neovim
     ./better-escape.nix # plugin to enable escaping insert mode with keys like jj and reducing the delay
     ./dap.nix # debugger
     ./hop.nix
