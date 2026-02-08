@@ -39,7 +39,7 @@
         };
       };
     };
-    folding = lib.mkDefault true;
+    folding.enable = lib.mkDefault true;
     nixvimInjections = lib.mkDefault true;
   };
 }
