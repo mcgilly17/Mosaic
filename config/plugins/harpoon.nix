@@ -1,7 +1,7 @@
 {
-  pkgs,
   lib,
   config,
+  myLibs,
   ...
 }: {
   plugins.harpoon = {
@@ -15,93 +15,48 @@
     };
   };
   keymaps = lib.mkIf config.plugins.harpoon.enable [
-    {
-      mode = "n";
-      key = "<leader>ha";
-      options.desc = "Add file";
-      action.__raw = "function() require'harpoon':list():add() end";
-    }
-    {
-      mode = "n";
-      key = "<leader>hm";
-      options.desc = "Quick Menu";
-      action.__raw = "function() require'harpoon'.ui:toggle_quick_menu(require'harpoon':list()) end";
-    }
-    {
-      mode = "n";
-      key = "<leader>h1";
-      options.desc = "1";
-      action.__raw = "function() require'harpoon':list():select(1) end";
-    }
-    {
-      mode = "n";
-      key = "<leader>h2";
-      options.desc = "2";
-      action.__raw = "function() require'harpoon':list():select(2) end";
-    }
-    {
-      mode = "n";
-      key = "<leader>h3";
-      options.desc = "3";
-      action.__raw = "function() require'harpoon':list():select(3) end";
-    }
-    {
-      mode = "n";
-      key = "<leader>h4";
-      options.desc = "4";
-      action.__raw = "function() require'harpoon':list():select(4) end";
-    }
+    (myLibs.mkRawmap "n" "<leader>ha" "function() require'harpoon':list():add() end" "Add file")
+    (myLibs.mkRawmap "n" "<leader>hm" "function() require'harpoon'.ui:toggle_quick_menu(require'harpoon':list()) end" "Quick Menu")
+    (myLibs.mkRawmap "n" "<leader>h1" "function() require'harpoon':list():select(1) end" "1")
+    (myLibs.mkRawmap "n" "<leader>h2" "function() require'harpoon':list():select(2) end" "2")
+    (myLibs.mkRawmap "n" "<leader>h3" "function() require'harpoon':list():select(3) end" "3")
+    (myLibs.mkRawmap "n" "<leader>h4" "function() require'harpoon':list():select(4) end" "4")
   ];
   plugins.which-key.settings.spec = lib.optionals config.plugins.which-key.enable [
-    # Harpoon Configs
     {
       __unkeyed-1 = "<leader>h";
-      mode = [
-        "n"
-      ];
+      mode = ["n"];
       group = "+harpoon";
       icon = "󱡁";
     }
     {
       __unkeyed = "<leader>hm";
-      mode = [
-        "n"
-      ];
+      mode = ["n"];
       desc = "QuickMenu";
     }
     {
       __unkeyed-1 = "<leader>ha";
-      mode = [
-        "n"
-      ];
+      mode = ["n"];
       desc = "Add file to Harpoon";
     }
     {
       __unkeyed-1 = "<leader>h1";
-      mode = [
-        "n"
-      ];
+      mode = ["n"];
       desc = "Harpoon File 1";
     }
     {
       __unkeyed-1 = "<leader>h2";
-      mode = [
-        "n"
-      ];
+      mode = ["n"];
       desc = "Harpoon File 2";
     }
     {
       __unkeyed-1 = "<leader>h3";
-      mode = [
-        "n"
-      ];
+      mode = ["n"];
       group = "Harpoon File 3";
     }
     {
       __unkeyed-1 = "<leader>h4";
-      mode = [
-        "n"
-      ];
+      mode = ["n"];
       desc = "Harpoon File 4";
     }
   ];

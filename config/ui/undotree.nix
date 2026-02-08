@@ -1,7 +1,7 @@
 {
-  pkgs,
   lib,
   config,
+  myLibs,
   ...
 }: {
   plugins.undotree = {
@@ -12,14 +12,6 @@
     };
   };
   keymaps = lib.mkIf config.plugins.undotree.enable [
-    {
-      mode = "n";
-      key = "<leader>ut";
-      action = "<cmd>UndotreeToggle<CR>";
-      options = {
-        silent = true;
-        desc = "Undotree";
-      };
-    }
+    (myLibs.mkNmap "<leader>ut" "<cmd>UndotreeToggle<CR>" "Undotree")
   ];
 }

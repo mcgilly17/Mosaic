@@ -81,8 +81,10 @@ Available helpers:
 - `mkNmap key action desc` - Normal mode
 - `mkVmap key action desc` - Visual mode
 - `mkImap key action desc` - Insert mode
+- `mkXmap key action desc` - Visual/Select mode
 - `mkNVmap key action desc` - Normal + Visual mode
 - `mkCmdmap mode key cmd desc` - Wraps cmd in `<cmd>...<cr>`
+- `mkRawmap mode key lua desc` - Lua function (action.__raw)
 - `mkKeymap mode key action desc` - Any mode(s)
 
 ## Pull Request Process

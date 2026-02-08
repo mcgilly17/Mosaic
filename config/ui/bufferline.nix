@@ -1,14 +1,14 @@
 {
-  pkgs,
   lib,
   config,
+  myLibs,
   ...
 }: {
   plugins = {
     bufferline = {
       enable = lib.mkDefault true;
       settings.options = {
-        separator_style = lib.mkDefault "slant"; # “slant”, “padded_slant”, “slope”, “padded_slope”, “thick”, “thin”
+        separator_style = lib.mkDefault "slant"; # "slant", "padded_slant", "slope", "padded_slope", "thick", "thin"
         offsets = lib.mkDefault [
           {
             filetype = "neo-tree";
@@ -22,72 +22,12 @@
   };
 
   keymaps = lib.mkIf config.plugins.bufferline.enable [
-    /*
-    =============================================
-    =                  Bufferline               =
-    =============================================
-    */
-
-    {
-      mode = "n";
-      key = "<Tab>";
-      action = "<cmd>BufferLineCycleNext<cr>";
-      options = {
-        desc = "Cycle to next buffer";
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<S-Tab>";
-      action = "<cmd>BufferLineCyclePrev<cr>";
-      options = {
-        desc = "Cycle to previous buffer";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>br";
-      action = "<cmd>BufferLineCloseRight<cr>";
-      options = {
-        desc = "Delete buffers to the right";
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>bl";
-      action = "<cmd>BufferLineCloseLeft<cr>";
-      options = {
-        desc = "Delete buffers to the left";
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>bo";
-      action = "<cmd>BufferLineCloseOthers<cr>";
-      options = {
-        desc = "Delete other buffers";
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>bp";
-      action = "<cmd>BufferLineTogglePin<cr>";
-      options = {
-        desc = "Toggle pin";
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>bP";
-      action = "<Cmd>BufferLineGroupClose ungrouped<CR>";
-      options = {
-        desc = "Delete non-pinned buffers";
-      };
-    }
+    (myLibs.mkNmap "<Tab>" "<cmd>BufferLineCycleNext<cr>" "Cycle to next buffer")
+    (myLibs.mkNmap "<S-Tab>" "<cmd>BufferLineCyclePrev<cr>" "Cycle to previous buffer")
+    (myLibs.mkNmap "<leader>br" "<cmd>BufferLineCloseRight<cr>" "Delete buffers to the right")
+    (myLibs.mkNmap "<leader>bl" "<cmd>BufferLineCloseLeft<cr>" "Delete buffers to the left")
+    (myLibs.mkNmap "<leader>bo" "<cmd>BufferLineCloseOthers<cr>" "Delete other buffers")
+    (myLibs.mkNmap "<leader>bp" "<cmd>BufferLineTogglePin<cr>" "Toggle pin")
+    (myLibs.mkNmap "<leader>bP" "<Cmd>BufferLineGroupClose ungrouped<CR>" "Delete non-pinned buffers")
   ];
 }

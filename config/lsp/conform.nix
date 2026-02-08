@@ -1,7 +1,7 @@
 {
-  pkgs,
   lib,
   config,
+  myLibs,
   ...
 }: {
   plugins.conform-nvim = {
@@ -96,30 +96,7 @@
   '';
 
   keymaps = lib.mkIf config.plugins.conform-nvim.enable [
-    /*
-    =============================================
-    =              Code (Conform)               =
-    =============================================
-    */
-
-    {
-      mode = "n";
-      key = "<leader>cf";
-      action = "<cmd>lua require('conform').format()<cr>";
-      options = {
-        silent = true;
-        desc = "Format Buffer";
-      };
-    }
-
-    {
-      mode = "v";
-      key = "<leader>cf";
-      action = "<cmd>lua require('conform').format()<cr>";
-      options = {
-        silent = true;
-        desc = "Format Lines";
-      };
-    }
+    (myLibs.mkNmap "<leader>cf" "<cmd>lua require('conform').format()<cr>" "Format Buffer")
+    (myLibs.mkVmap "<leader>cf" "<cmd>lua require('conform').format()<cr>" "Format Lines")
   ];
 }

@@ -1,7 +1,7 @@
 {
-  pkgs,
   lib,
   config,
+  myLibs,
   ...
 }: {
   plugins.hop = {
@@ -11,161 +11,57 @@
   plugins.which-key.settings.spec = lib.optionals config.plugins.hop.enable [
     {
       __unkeyed-1 = "<leader>j";
-      mode = [
-        "n"
-      ];
+      mode = ["n"];
       group = "+jump";
       icon = "󰦻";
     }
   ];
 
   keymaps = lib.mkIf config.plugins.hop.enable [
-    /*
-    =============================================
-    =                     Hop                   =
-    =============================================
-    */
+    (myLibs.mkNmap "<leader>jw" ":HopWord<CR>" "Jump to Word")
+    (myLibs.mkNmap "<leader>ja" ":HopAnywhere<CR>" "Jump to Anywhere")
+    (myLibs.mkNmap "<leader>jl" ":HopLineStart<CR>" "Jump to Line")
+    (myLibs.mkNmap "<leader>jp" ":HopPattern<CR>" "Jump to Pattern")
+    (myLibs.mkNmap "<leader>jv" ":HopVertical<CR>" "Jump Vertically")
+    (myLibs.mkNmap "<leader>jn" ":HopNode<CR>" "Jump to Node")
+    (myLibs.mkNmap "<leader>jy" ":HopYankChar1<CR>" "Yank without Jumping")
 
-    {
-      mode = ["n"];
-      key = "<leader>jw";
-      action = ":HopWord<CR>";
-      options = {
-        silent = true;
-        desc = "Jump to Word";
-      };
-    }
-
-    {
-      mode = ["n"];
-      key = "<leader>ja";
-      action = ":HopAnywhere<CR>";
-      options = {
-        silent = true;
-        desc = "Jump to Anywhere";
-      };
-    }
-
-    {
-      mode = ["n"];
-      key = "<leader>jl";
-      action = ":HopLineStart<CR>";
-      options = {
-        silent = true;
-        desc = "Jump to Line";
-      };
-    }
-
-    {
-      mode = ["n"];
-      key = "<leader>jp";
-      action = ":HopPattern<CR>";
-      options = {
-        silent = true;
-        desc = "Jump to Pattern";
-      };
-    }
-
-    {
-      mode = ["n"];
-      key = "<leader>jv";
-      action = ":HopVertical<CR>";
-      options = {
-        silent = true;
-        desc = "Jump Vertically";
-      };
-    }
-
-    {
-      mode = ["n"];
-      key = "<leader>jn";
-      action = ":HopNode<CR>";
-      options = {
-        silent = true;
-        desc = "Jump to Node";
-      };
-    }
-
-    {
-      mode = ["n"];
-      key = "<leader>jy";
-      action = ":HopYankChar1<CR>";
-      options = {
-        silent = true;
-        desc = "Yank without Jumping";
-      };
-    }
-    #### remapping f/F and t/T to use Hop
-    {
-      mode = ["n"];
-      key = "f";
-      action.__raw = ''
-          function()
-              require'hop'.hint_char1({
-            direction = require'hop.hint'.HintDirection.AFTER_CURSOR,
-              current_line_only = true,
-                hint_offset = 1
-            })
-        end
-      '';
-      options = {
-        noremap = true;
-        silent = true;
-      };
-    }
-
-    {
-      mode = ["n"];
-      key = "F";
-      action.__raw = ''
-          function()
-              require'hop'.hint_char1({
-            direction = require'hop.hint'.HintDirection.BEFORE_CURSOR,
-              current_line_only = true,
-                hint_offset = 1
-            })
-        end
-      '';
-      options = {
-        noremap = true;
-        silent = true;
-      };
-    }
-
-    {
-      mode = ["n"];
-      key = "t";
-      action.__raw = ''
-          function()
-              require'hop'.hint_char1({
-            direction = require'hop.hint'.HintDirection.AFTER_CURSOR,
-              current_line_only = true,
-                hint_offset = -1
-            })
-        end
-      '';
-      options = {
-        noremap = true;
-        silent = true;
-      };
-    }
-
-    {
-      mode = ["n"];
-      key = "T";
-      action.__raw = ''
-          function()
-              require'hop'.hint_char1({
-            direction = require'hop.hint'.HintDirection.BEFORE_CURSOR,
-              current_line_only = true,
-                hint_offset = -1
-            })
-        end
-      '';
-      options = {
-        noremap = true;
-        silent = true;
-      };
-    }
+    # Remapping f/F and t/T to use Hop
+    (myLibs.mkRawmap ["n"] "f" ''
+      function()
+        require'hop'.hint_char1({
+          direction = require'hop.hint'.HintDirection.AFTER_CURSOR,
+          current_line_only = true,
+          hint_offset = 1
+        })
+      end
+    '' "Hop forward to char")
+    (myLibs.mkRawmap ["n"] "F" ''
+      function()
+        require'hop'.hint_char1({
+          direction = require'hop.hint'.HintDirection.BEFORE_CURSOR,
+          current_line_only = true,
+          hint_offset = 1
+        })
+      end
+    '' "Hop backward to char")
+    (myLibs.mkRawmap ["n"] "t" ''
+      function()
+        require'hop'.hint_char1({
+          direction = require'hop.hint'.HintDirection.AFTER_CURSOR,
+          current_line_only = true,
+          hint_offset = -1
+        })
+      end
+    '' "Hop forward before char")
+    (myLibs.mkRawmap ["n"] "T" ''
+      function()
+        require'hop'.hint_char1({
+          direction = require'hop.hint'.HintDirection.BEFORE_CURSOR,
+          current_line_only = true,
+          hint_offset = -1
+        })
+      end
+    '' "Hop backward before char")
   ];
 }

@@ -1,7 +1,7 @@
 {
-  pkgs,
   lib,
   config,
+  myLibs,
   ...
 }: {
   plugins.dap = {
@@ -37,185 +37,24 @@
   };
 
   keymaps = lib.mkIf config.plugins.dap.enable [
-    /*
-    =============================================
-    =                   Debugging               =
-    =============================================
-    */
-    {
-      mode = "n";
-      key = "<leader>dB";
-      action = "
-        <cmd>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>
-      ";
-      options = {
-        silent = true;
-        desc = "Breakpoint Condition";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>db";
-      action = ":DapToggleBreakpoint<cr>";
-      options = {
-        silent = true;
-        desc = "Toggle Breakpoint";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>dc";
-      action = ":DapContinue<cr>";
-      options = {
-        silent = true;
-        desc = "Continue";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>da";
-      action = "<cmd>lua require('dap').continue({ before = get_args })<cr>";
-      options = {
-        silent = true;
-        desc = "Run with Args";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>dC";
-      action = "<cmd>lua require('dap').run_to_cursor()<cr>";
-      options = {
-        silent = true;
-        desc = "Run to cursor";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>dg";
-      action = "<cmd>lua require('dap').goto_()<cr>";
-      options = {
-        silent = true;
-        desc = "Go to line (no execute)";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>di";
-      action = ":DapStepInto<cr>";
-      options = {
-        silent = true;
-        desc = "Step into";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>dj";
-      action = "
-        <cmd>lua require('dap').down()<cr>
-      ";
-      options = {
-        silent = true;
-        desc = "Down";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>dk";
-      action = "<cmd>lua require('dap').up()<cr>";
-      options = {
-        silent = true;
-        desc = "Up";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>dl";
-      action = "<cmd>lua require('dap').run_last()<cr>";
-      options = {
-        silent = true;
-        desc = "Run Last";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>do";
-      action = ":DapStepOut<cr>";
-      options = {
-        silent = true;
-        desc = "Step Out";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>dO";
-      action = ":DapStepOver<cr>";
-      options = {
-        silent = true;
-        desc = "Step Over";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>dp";
-      action = "<cmd>lua require('dap').pause()<cr>";
-      options = {
-        silent = true;
-        desc = "Pause";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>dr";
-      action = ":DapToggleRepl<cr>";
-      options = {
-        silent = true;
-        desc = "Toggle REPL";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>ds";
-      action = "<cmd>lua require('dap').session()<cr>";
-      options = {
-        silent = true;
-        desc = "Session";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>dt";
-      action = ":DapTerminate<cr>";
-      options = {
-        silent = true;
-        desc = "Terminate";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>du";
-      action = "<cmd>lua require('dapui').toggle()<cr>";
-      options = {
-        silent = true;
-        desc = "Dap UI";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>dw";
-      action = "<cmd>lua require('dap.ui.widgets').hover()<cr>";
-      options = {
-        silent = true;
-        desc = "Widgets";
-      };
-    }
-    {
-      mode = ["n" "v"];
-      key = "<leader>de";
-      action = "<cmd>lua require('dapui').eval()<cr>";
-      options = {
-        silent = true;
-        desc = "Eval";
-      };
-    }
+    (myLibs.mkNmap "<leader>dB" "<cmd>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>" "Breakpoint Condition")
+    (myLibs.mkNmap "<leader>db" ":DapToggleBreakpoint<cr>" "Toggle Breakpoint")
+    (myLibs.mkNmap "<leader>dc" ":DapContinue<cr>" "Continue")
+    (myLibs.mkNmap "<leader>da" "<cmd>lua require('dap').continue({ before = get_args })<cr>" "Run with Args")
+    (myLibs.mkNmap "<leader>dC" "<cmd>lua require('dap').run_to_cursor()<cr>" "Run to cursor")
+    (myLibs.mkNmap "<leader>dg" "<cmd>lua require('dap').goto_()<cr>" "Go to line (no execute)")
+    (myLibs.mkNmap "<leader>di" ":DapStepInto<cr>" "Step into")
+    (myLibs.mkNmap "<leader>dj" "<cmd>lua require('dap').down()<cr>" "Down")
+    (myLibs.mkNmap "<leader>dk" "<cmd>lua require('dap').up()<cr>" "Up")
+    (myLibs.mkNmap "<leader>dl" "<cmd>lua require('dap').run_last()<cr>" "Run Last")
+    (myLibs.mkNmap "<leader>do" ":DapStepOut<cr>" "Step Out")
+    (myLibs.mkNmap "<leader>dO" ":DapStepOver<cr>" "Step Over")
+    (myLibs.mkNmap "<leader>dp" "<cmd>lua require('dap').pause()<cr>" "Pause")
+    (myLibs.mkNmap "<leader>dr" ":DapToggleRepl<cr>" "Toggle REPL")
+    (myLibs.mkNmap "<leader>ds" "<cmd>lua require('dap').session()<cr>" "Session")
+    (myLibs.mkNmap "<leader>dt" ":DapTerminate<cr>" "Terminate")
+    (myLibs.mkNmap "<leader>du" "<cmd>lua require('dapui').toggle()<cr>" "Dap UI")
+    (myLibs.mkNmap "<leader>dw" "<cmd>lua require('dap.ui.widgets').hover()<cr>" "Widgets")
+    (myLibs.mkNVmap "<leader>de" "<cmd>lua require('dapui').eval()<cr>" "Eval")
   ];
 }

@@ -2,6 +2,7 @@
   pkgs,
   config,
   lib,
+  myLibs,
   ...
 }: let
   cfg = config.plugins.sidebar;
@@ -24,15 +25,7 @@ in {
     ];
 
     keymaps = [
-      {
-        mode = "n";
-        key = "<leader>ue";
-        action = ":SidebarNvimToggle<CR>";
-        options = {
-          desc = "Toggle Explorer";
-          silent = true;
-        };
-      }
+      (myLibs.mkNmap "<leader>ue" ":SidebarNvimToggle<CR>" "Toggle Explorer")
     ];
     extraConfigLua = ''
       local sidebar = require("sidebar-nvim")
@@ -53,7 +46,7 @@ in {
         datetime = { format = "%a %b %d, %H:%M", clocks = { { name = "local" } } },
         todos = { ignored_paths = {} },
         ["git"] = {
-            icon = "", -- 
+            icon = "", --
         },
       })
       cmd = {

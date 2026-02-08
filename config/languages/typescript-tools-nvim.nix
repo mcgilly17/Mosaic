@@ -1,7 +1,7 @@
 {
-  pkgs,
   lib,
   config,
+  myLibs,
   ...
 }: {
   plugins.typescript-tools = {
@@ -22,21 +22,7 @@
   };
 
   keymaps = lib.mkIf config.plugins.typescript-tools.enable [
-    {
-      mode = "n";
-      key = "<leader>co";
-      action = "<cmd>TSToolsOrganizeImports<cr>";
-      options = {
-        desc = "Organize Imports";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>cR";
-      action = "<cmd>TSToolsRemoveUnusedImports<cr>";
-      options = {
-        desc = "Remove Unused Imports";
-      };
-    }
+    (myLibs.mkNmap "<leader>co" "<cmd>TSToolsOrganizeImports<cr>" "Organize Imports")
+    (myLibs.mkNmap "<leader>cR" "<cmd>TSToolsRemoveUnusedImports<cr>" "Remove Unused Imports")
   ];
 }

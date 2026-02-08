@@ -1,7 +1,7 @@
 {
-  pkgs,
   lib,
   config,
+  myLibs,
   ...
 }: {
   plugins.trouble = {
@@ -14,54 +14,15 @@
   plugins.which-key.settings.spec = lib.optionals config.plugins.trouble.enable [
     {
       __unkeyed-1 = "<leader>T";
-      mode = [
-        "n"
-      ];
+      mode = ["n"];
       group = "+quickfix/trouble";
     }
   ];
 
   keymaps = lib.mkIf config.plugins.trouble.enable [
-    /*
-    =============================================
-    =                    Trouble                =
-    =============================================
-    */
-    {
-      mode = "n";
-      key = "<leader>Tx";
-      action = "<cmd>Trouble diagnostics toggle filter.buf=0<cr>";
-      options = {
-        silent = true;
-        desc = "Document Diagnostics (Trouble)";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>TX";
-      action = "<cmd>Trouble diagnostics toggle<cr>";
-      options = {
-        silent = true;
-        desc = "Workspace Diagnostics (Trouble)";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>Tt";
-      action = "<cmd>Trouble todo toggle<cr>";
-      options = {
-        silent = true;
-        desc = "Todo (Trouble)";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>Tq";
-      action = "<cmd>Trouble qflist toggle<cr>";
-      options = {
-        silent = true;
-        desc = "Quickfix List (Trouble)";
-      };
-    }
+    (myLibs.mkNmap "<leader>Tx" "<cmd>Trouble diagnostics toggle filter.buf=0<cr>" "Document Diagnostics (Trouble)")
+    (myLibs.mkNmap "<leader>TX" "<cmd>Trouble diagnostics toggle<cr>" "Workspace Diagnostics (Trouble)")
+    (myLibs.mkNmap "<leader>Tt" "<cmd>Trouble todo toggle<cr>" "Todo (Trouble)")
+    (myLibs.mkNmap "<leader>Tq" "<cmd>Trouble qflist toggle<cr>" "Quickfix List (Trouble)")
   ];
 }

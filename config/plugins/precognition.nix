@@ -1,30 +1,20 @@
 {
-  pkgs,
-  config,
   lib,
+  myLibs,
   ...
 }: {
   plugins.precognition = {
     enable = lib.mkDefault false;
   };
   keymaps = [
-    {
-      mode = "n";
-      key = "<leader>up";
-      action.__raw = ''
-        function()
-          if require("precognition").toggle() then
-              vim.notify("precognition on")
-          else
-              vim.notify("precognition off")
-          end
+    (myLibs.mkRawmap "n" "<leader>up" ''
+      function()
+        if require("precognition").toggle() then
+          vim.notify("precognition on")
+        else
+          vim.notify("precognition off")
         end
-      '';
-
-      options = {
-        desc = "Precognition Toggle";
-        silent = true;
-      };
-    }
+      end
+    '' "Precognition Toggle")
   ];
 }

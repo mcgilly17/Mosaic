@@ -1,7 +1,7 @@
 {
-  pkgs,
   lib,
   config,
+  myLibs,
   ...
 }: {
   plugins.spectre = {
@@ -15,13 +15,6 @@
   };
 
   keymaps = lib.mkIf config.plugins.spectre.enable [
-    {
-      mode = "n";
-      key = "<leader>cs";
-      action = "<cmd>Spectre<cr>";
-      options = {
-        desc = "Search / Replace";
-      };
-    }
+    (myLibs.mkNmap "<leader>cs" "<cmd>Spectre<cr>" "Search / Replace")
   ];
 }

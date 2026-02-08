@@ -1,7 +1,7 @@
 {
-  pkgs,
   lib,
   config,
+  myLibs,
   ...
 }: {
   plugins.markdown-preview = {
@@ -12,13 +12,6 @@
   };
 
   keymaps = lib.mkIf config.plugins.markdown-preview.enable [
-    {
-      mode = "n";
-      key = "<leader>mp";
-      action = "<cmd>MarkdownPreview<cr>";
-      options = {
-        desc = "Markdown Preview";
-      };
-    }
+    (myLibs.mkNmap "<leader>mp" "<cmd>MarkdownPreview<cr>" "Markdown Preview")
   ];
 }

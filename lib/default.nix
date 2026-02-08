@@ -82,4 +82,26 @@
       inherit desc;
     };
   };
+
+  # Raw Lua action keymap (for action.__raw)
+  mkRawmap = mode: key: lua: desc: {
+    inherit mode key;
+    action.__raw = lua;
+    options = {
+      silent = true;
+      noremap = true;
+      inherit desc;
+    };
+  };
+
+  # Xmap for visual/select mode
+  mkXmap = key: action: desc: {
+    mode = "x";
+    inherit key action;
+    options = {
+      silent = true;
+      noremap = true;
+      inherit desc;
+    };
+  };
 }
