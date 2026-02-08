@@ -86,7 +86,7 @@ environment.systemPackages or home.packages
   outputs = { mosaic }: {
 
     # Add to your system packages or home-manager packages.
-    environent.systemPackages = [
+    environment.systemPackages = [
       mosaic.packages.${pkgs.system}.default
     ];
 
@@ -126,7 +126,7 @@ please don't hesitate to raise an issue / discussion / PR.
 
 ### Simple Extension
 
-Basic level configurations and settings updates can be done as follows:j
+Basic level configurations and settings updates can be done as follows:
 
 ```nix
 home.packages = [
