@@ -1,10 +1,11 @@
 {
   pkgs,
+  lib,
   config,
   ...
 }: {
   plugins.notify = {
-    enable = pkgs.lib.mkDefault true;
+    enable = lib.mkDefault true;
     settings = {
       background_colour = "#000000";
       fps = 60;
@@ -14,7 +15,7 @@
     };
   };
 
-  keymaps = pkgs.lib.mkIf config.plugins.notify.enable [
+  keymaps = lib.mkIf config.plugins.notify.enable [
     {
       mode = "n";
       key = "<leader>un";
@@ -27,7 +28,7 @@
     }
   ];
 
-  extraConfigLua = pkgs.lib.mkIf config.plugins.notify.enable ''
+  extraConfigLua = lib.mkIf config.plugins.notify.enable ''
     local notify = require("notify")
     local filtered_message = { "No information available" }
 
@@ -37,7 +38,7 @@
       local merged_opts = vim.tbl_extend("force", {
         on_open = function(win)
           local buf = vim.api.nvim_win_get_buf(win)
-          vim.api.nvim_buf_set_option(buf, "filetype", "markdown")
+          vim.bo[buf].filetype = "markdown"
         end,
       }, opts or {})
 

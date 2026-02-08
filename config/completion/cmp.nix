@@ -1,25 +1,28 @@
 {
   pkgs,
+  lib,
   config,
   ...
 }: {
   plugins = {
-    cmp-nvim-lsp = {enable = pkgs.lib.mkDefault true;}; # lsp
-    cmp-buffer = {enable = pkgs.lib.mkDefault true;};
-    cmp-path = {enable = pkgs.lib.mkDefault true;}; # file system paths
-    cmp_luasnip = {enable = pkgs.lib.mkDefault true;}; # snippets
-    cmp-cmdline = {enable = pkgs.lib.mkDefault false;}; # autocomplete for cmdline
+    cmp-nvim-lsp = {enable = lib.mkDefault true;}; # lsp
+    cmp-buffer = {enable = lib.mkDefault true;};
+    cmp-path = {enable = lib.mkDefault true;}; # file system paths
+    cmp_luasnip = {enable = lib.mkDefault true;}; # snippets
+    cmp-cmdline = {enable = lib.mkDefault false;}; # autocomplete for cmdline
     cmp = {
-      enable = pkgs.lib.mkDefault true;
-      autoEnableSources = pkgs.lib.mkDefault false;
+      enable = lib.mkDefault true;
+      autoEnableSources = lib.mkDefault false;
       settings = {
         experimental = {
-          ghost_text = pkgs.lib.mkDefault true;
+          ghost_text = lib.mkDefault true;
         };
         # TODO: sort this raw stuff out
         mapping = {
           __raw = ''
-            cmp.mapping.preset.insert({
+            (function()
+              local luasnip = require('luasnip')
+              return cmp.mapping.preset.insert({
               ['<C-j>'] = cmp.mapping.select_next_item(),
               ['<C-k>'] = cmp.mapping.select_prev_item(),
               ['<C-e>'] = cmp.mapping.abort(),
@@ -68,7 +71,8 @@
                   fallback()
                 end
               end, { "i", "s" }),
-            })
+              })
+            end)()
           '';
         };
         snippet = {
@@ -107,35 +111,7 @@
       };
     };
   };
-  extraConfigLua = pkgs.lib.mkIf config.plugins.cmp.enable ''
-    kind_icons = {
-      Text = "󰊄",
-      Method = "",
-      Function = "󰡱",
-      Constructor = "",
-      Field = "",
-      Variable = "󱀍",
-      Class = "",
-      Interface = "",
-      Module = "󰕳",
-      Property = "",
-      Unit = "",
-      Value = "",
-      Enum = "",
-      Keyword = "",
-      Snippet = "",
-      Color = "",
-      File = "",
-      Reference = "",
-      Folder = "",
-      EnumMember = "",
-      Constant = "",
-      Struct = "",
-      Event = "",
-      Operator = "",
-      TypeParameter = "",
-    }
-
+  extraConfigLua = lib.mkIf config.plugins.cmp.enable ''
     local cmp = require'cmp'
 
     -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).

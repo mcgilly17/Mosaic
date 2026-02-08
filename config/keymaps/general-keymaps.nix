@@ -544,15 +544,14 @@ _: {
     end, { desc = "[P]Toggle fold" })
 
     local function set_foldmethod_expr()
-      -- These are lazyvim.org defaults but setting them just in case a file
-        -- doesn't have them set
+      -- Use native treesitter folding for nvim 0.10+, fallback to indent
       if vim.fn.has("nvim-0.10") == 1 then
         vim.opt.foldmethod = "expr"
-        vim.opt.foldexpr = "v:lua.require'lazyvim.util'.ui.foldexpr()"
+        vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
         vim.opt.foldtext = ""
       else
         vim.opt.foldmethod = "indent"
-        vim.opt.foldtext = "v:lua.require'lazyvim.util'.ui.foldtext()"
+        vim.opt.foldtext = ""
       end
       vim.opt.foldlevel = 99
     end

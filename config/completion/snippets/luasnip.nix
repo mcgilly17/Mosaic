@@ -1,15 +1,16 @@
 {
   pkgs,
+  lib,
   config,
   ...
 }: {
   plugins.luasnip = {
-    enable = pkgs.lib.mkDefault true;
-    settings = pkgs.lib.mkDefault {
+    enable = lib.mkDefault true;
+    settings = lib.mkDefault {
       enable_autosnippets = true;
       store_selection_keys = "<Tab>";
     };
-    fromVscode = pkgs.lib.mkDefault [
+    fromVscode = lib.mkDefault [
       {
         lazyLoad = true;
         paths = "${pkgs.vimPlugins.friendly-snippets}";
@@ -20,8 +21,4 @@
       }
     ];
   };
-
-  extraConfigLua = pkgs.lib.mkIf config.plugins.luasnip.enable ''
-    luasnip = require("luasnip")
-  '';
 }
