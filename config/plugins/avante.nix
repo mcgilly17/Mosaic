@@ -5,7 +5,7 @@
   ...
 }: {
   plugins.avante = {
-    enable = pkgs.lib.mkDefault true;
+    enable = lib.mkDefault true;
     settings = {
       provider = "openai";
     };
@@ -17,7 +17,7 @@
         "n"
         "v"
       ];
-      group = "+Co-Pilot";
+      group = "AI";
       icon = "";
     }
   ];
