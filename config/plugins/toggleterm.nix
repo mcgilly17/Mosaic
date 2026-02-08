@@ -1,6 +1,7 @@
 {pkgs, lib, ...}: {
   plugins.toggleterm = {
     enable = lib.mkDefault true;
+    lazyLoad.settings.cmd = "ToggleTerm";
     settings = {
       size = ''
         function(term)

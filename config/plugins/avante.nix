@@ -6,6 +6,7 @@
 }: {
   plugins.avante = {
     enable = lib.mkDefault true;
+    lazyLoad.settings.cmd = "AvanteAsk";
     settings = {
       provider = "openai";
     };

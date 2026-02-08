@@ -6,6 +6,7 @@
 }: {
   plugins.gitsigns = {
     enable = lib.mkDefault true;
+    lazyLoad.settings.event = "BufReadPre";
     settings = {
       trouble = lib.mkDefault true;
       current_line_blame = lib.mkDefault false;

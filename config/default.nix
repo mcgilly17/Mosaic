@@ -20,7 +20,7 @@
     ./languages
     ./lsp
     ./markdown
-    # ./pluginmanagers
+    ./pluginmanagers
     ./sets.nix
     ./treesitter
     ./ui

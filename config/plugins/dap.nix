@@ -6,6 +6,7 @@
 }: {
   plugins.dap = {
     enable = lib.mkDefault true;
+    lazyLoad.settings.cmd = "DapContinue";
     signs = lib.mkDefault {
       dapBreakpoint = {
         text = "●";

@@ -9,18 +9,27 @@
   };
 
   # Use coder/claudecode.nvim directly (not the nixvim module which uses a different plugin)
+  # Lazy load on ClaudeCode command to avoid startup errors in sandbox
   extraPlugins = [
-    pkgs.vimPlugins.claudecode-nvim
+    {
+      plugin = pkgs.vimPlugins.claudecode-nvim;
+      optional = true;
+    }
   ];
 
   extraConfigLua = ''
-    require("claudecode").setup({
-      terminal = {
-        split_side = "right",
-        split_width_percentage = 0.4,
-        provider = "snacks",
-      },
-    })
+    -- Lazy load claudecode on first command
+    vim.api.nvim_create_user_command("ClaudeCode", function()
+      require("lz.n").trigger_load("claudecode.nvim")
+      require("claudecode").setup({
+        terminal = {
+          split_side = "right",
+          split_width_percentage = 0.4,
+          provider = "snacks",
+        },
+      })
+      vim.cmd("ClaudeCode")
+    end, {})
   '';
 
   plugins.which-key.settings.spec = [

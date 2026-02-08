@@ -6,6 +6,7 @@
 }: {
   plugins.oil = {
     enable = lib.mkDefault true;
+    lazyLoad.settings.cmd = "Oil";
     settings = {
       useDefaultKeymaps = true;
       deleteToTrash = true;
