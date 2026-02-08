@@ -52,6 +52,39 @@ Each plugin should:
   - `<leader>f` - Find/search
   - `<leader>b` - Buffers
 
+#### Keymap Helper Functions
+
+Use `myLibs` helpers to reduce boilerplate:
+
+```nix
+{ myLibs, ... }: {
+  keymaps = [
+    # Normal mode keymap
+    (myLibs.mkNmap "<leader>w" "<cmd>w<cr>" "Save file")
+
+    # Visual mode keymap
+    (myLibs.mkVmap "J" ":m '>+1<CR>gv=gv" "Move line down")
+
+    # Normal + Visual mode
+    (myLibs.mkNVmap "<leader>y" "\"+y" "Copy to clipboard")
+
+    # Any mode with command wrapper
+    (myLibs.mkCmdmap "n" "<leader>q" "quit" "Quit")
+
+    # Custom mode keymap
+    (myLibs.mkKeymap ["n" "i"] "<C-s>" "<cmd>w<cr>" "Save file")
+  ];
+}
+```
+
+Available helpers:
+- `mkNmap key action desc` - Normal mode
+- `mkVmap key action desc` - Visual mode
+- `mkImap key action desc` - Insert mode
+- `mkNVmap key action desc` - Normal + Visual mode
+- `mkCmdmap mode key cmd desc` - Wraps cmd in `<cmd>...<cr>`
+- `mkKeymap mode key action desc` - Any mode(s)
+
 ## Pull Request Process
 
 1. Fork and create a feature branch

@@ -1,7 +1,7 @@
 {
-  pkgs,
   lib,
   config,
+  myLibs,
   ...
 }: {
   plugins.gitsigns = {
@@ -14,92 +14,14 @@
   };
 
   keymaps = lib.mkIf config.plugins.gitsigns.enable [
-    /*
-    =============================================
-    =                Git (GitSigns)             =
-    =============================================
-    */
-
-    {
-      mode = ["n" "v"];
-      key = "<leader>gh";
-      action = ":Gitsigns<CR>";
-      options = {
-        silent = true;
-        desc = "+hunks";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>ghb";
-      action = ":Gitsigns blame_line<CR>";
-      options = {
-        silent = true;
-        desc = "Blame line";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>ghd";
-      action = ":Gitsigns diffthis<CR>";
-      options = {
-        silent = true;
-        desc = "Diff This";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>ghp";
-      action = ":Gitsigns preview_hunk<CR>";
-      options = {
-        silent = true;
-        desc = "Preview hunk";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>ghR";
-      action = ":Gitsigns reset_buffer<CR>";
-      options = {
-        silent = true;
-        desc = "Reset Buffer";
-      };
-    }
-    {
-      mode = ["n" "v"];
-      key = "<leader>ghr";
-      action = ":Gitsigns reset_hunk<CR>";
-      options = {
-        silent = true;
-        desc = "Reset Hunk";
-      };
-    }
-    {
-      mode = ["n" "v"];
-      key = "<leader>ghs";
-      action = ":Gitsigns stage_hunk<CR>";
-      options = {
-        silent = true;
-        desc = "Stage Hunk";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>ghS";
-      action = ":Gitsigns stage_buffer<CR>";
-      options = {
-        silent = true;
-        desc = "Stage Buffer";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader>ghu";
-      action = ":Gitsigns undo_stage_hunk<CR>";
-      options = {
-        silent = true;
-        desc = "Undo Stage Hunk";
-      };
-    }
+    (myLibs.mkNVmap "<leader>gh" ":Gitsigns<CR>" "+hunks")
+    (myLibs.mkNmap "<leader>ghb" ":Gitsigns blame_line<CR>" "Blame line")
+    (myLibs.mkNmap "<leader>ghd" ":Gitsigns diffthis<CR>" "Diff This")
+    (myLibs.mkNmap "<leader>ghp" ":Gitsigns preview_hunk<CR>" "Preview hunk")
+    (myLibs.mkNmap "<leader>ghR" ":Gitsigns reset_buffer<CR>" "Reset Buffer")
+    (myLibs.mkNVmap "<leader>ghr" ":Gitsigns reset_hunk<CR>" "Reset Hunk")
+    (myLibs.mkNVmap "<leader>ghs" ":Gitsigns stage_hunk<CR>" "Stage Hunk")
+    (myLibs.mkNmap "<leader>ghS" ":Gitsigns stage_buffer<CR>" "Stage Buffer")
+    (myLibs.mkNmap "<leader>ghu" ":Gitsigns undo_stage_hunk<CR>" "Undo Stage Hunk")
   ];
 }
