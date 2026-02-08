@@ -1,5 +1,5 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   plugins.colorizer = {
-    enable = pkgs.lib.mkDefault true;
+    enable = lib.mkDefault true;
   };
 }

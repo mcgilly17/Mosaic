@@ -1,11 +1,11 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   plugins.hardtime = {
-    enable = pkgs.lib.mkDefault false;
+    enable = lib.mkDefault false;
     settings = {
-      enabled = pkgs.lib.mkDefault false;
+      enabled = lib.mkDefault false;
       #disableMouse = true;
       disabledFiletypes = ["neo-tree" "qf" "netrw" "NvimTree"];
-      hint = pkgs.lib.mkDefault true;
+      hint = lib.mkDefault true;
       maxCount = 4;
       maxTime = 1000;
       restrictionMode = "hint";

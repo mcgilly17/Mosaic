@@ -1,14 +1,14 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   # Manually installed plugins are managed here
   plugins = {
-    mosaic-testing.enable = pkgs.lib.mkDefault false;
-    mosaic-surround.enable = pkgs.lib.mkDefault true;
-    ultimate-autopair.enable = pkgs.lib.mkDefault true;
-    sidebar.enable = pkgs.lib.mkDefault true;
-    stay-centered.enable = pkgs.lib.mkDefault true;
-    dressing.enable = pkgs.lib.mkDefault true;
-    nui.enable = pkgs.lib.mkDefault true;
-    rainbow-indent.enable = pkgs.lib.mkDefault false;
+    mosaic-testing.enable = lib.mkDefault false;
+    mosaic-surround.enable = lib.mkDefault true;
+    ultimate-autopair.enable = lib.mkDefault true;
+    sidebar.enable = lib.mkDefault true;
+    stay-centered.enable = lib.mkDefault true;
+    dressing.enable = lib.mkDefault true;
+    nui.enable = lib.mkDefault true;
+    rainbow-indent.enable = lib.mkDefault false;
   };
 
   imports = [
@@ -29,5 +29,5 @@
     ./plugins
   ];
 
-  luaLoader.enable = pkgs.lib.mkDefault true;
+  luaLoader.enable = lib.mkDefault true;
 }

@@ -1,11 +1,12 @@
 {
   pkgs,
+  lib,
   config,
   ...
 }: {
   plugins.dap = {
-    enable = pkgs.lib.mkDefault true;
-    signs = pkgs.lib.mkDefault {
+    enable = lib.mkDefault true;
+    signs = lib.mkDefault {
       dapBreakpoint = {
         text = "●";
         texthl = "DapBreakpoint";
@@ -22,7 +23,7 @@
     configurations = {
     };
   };
-  plugins.dap-ui = pkgs.lib.mkDefault {
+  plugins.dap-ui = lib.mkDefault {
     enable = true;
     settings = {
       floating.mappings = {
@@ -34,7 +35,7 @@
     };
   };
 
-  keymaps = pkgs.lib.mkIf config.plugins.dap.enable [
+  keymaps = lib.mkIf config.plugins.dap.enable [
     /*
     =============================================
     =                   Debugging               =

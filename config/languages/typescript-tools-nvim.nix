@@ -1,26 +1,27 @@
 {
   pkgs,
+  lib,
   config,
   ...
 }: {
   plugins.typescript-tools = {
-    enable = pkgs.lib.mkDefault false;
+    enable = lib.mkDefault false;
     settings = {
       tsserverFilePreferences = {
         # Inlay Hints
-        includeInlayParameterNameHints = pkgs.lib.mkDefault "all";
-        includeInlayParameterNameHintsWhenArgumentMatchesName = pkgs.lib.mkDefault true;
-        includeInlayFunctionParameterTypeHints = pkgs.lib.mkDefault true;
-        includeInlayVariableTypeHints = pkgs.lib.mkDefault true;
-        includeInlayVariableTypeHintsWhenTypeMatchesName = pkgs.lib.mkDefault true;
-        includeInlayPropertyDeclarationTypeHints = pkgs.lib.mkDefault true;
-        includeInlayFunctionLikeReturnTypeHints = pkgs.lib.mkDefault true;
-        includeInlayEnumMemberValueHints = pkgs.lib.mkDefault true;
+        includeInlayParameterNameHints = lib.mkDefault "all";
+        includeInlayParameterNameHintsWhenArgumentMatchesName = lib.mkDefault true;
+        includeInlayFunctionParameterTypeHints = lib.mkDefault true;
+        includeInlayVariableTypeHints = lib.mkDefault true;
+        includeInlayVariableTypeHintsWhenTypeMatchesName = lib.mkDefault true;
+        includeInlayPropertyDeclarationTypeHints = lib.mkDefault true;
+        includeInlayFunctionLikeReturnTypeHints = lib.mkDefault true;
+        includeInlayEnumMemberValueHints = lib.mkDefault true;
       };
     };
   };
 
-  keymaps = pkgs.lib.mkIf config.plugins.typescript-tools.enable [
+  keymaps = lib.mkIf config.plugins.typescript-tools.enable [
     {
       mode = "n";
       key = "<leader>co";

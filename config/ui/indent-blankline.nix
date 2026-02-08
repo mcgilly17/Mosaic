@@ -1,6 +1,6 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   plugins.indent-blankline = {
-    enable = pkgs.lib.mkDefault true;
+    enable = lib.mkDefault true;
     settings = {
       exclude = {
         buftypes = ["terminal" "nofile"];

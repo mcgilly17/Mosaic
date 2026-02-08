@@ -1,24 +1,25 @@
 {
   pkgs,
+  lib,
   config,
   ...
 }: {
   plugins.telescope = {
-    enable = pkgs.lib.mkDefault true;
+    enable = lib.mkDefault true;
 
     extensions = {
       fzf-native = {
-        enable = pkgs.lib.mkDefault true;
+        enable = lib.mkDefault true;
       };
       ui-select = {
         settings = {
           specific_opts = {
-            codeactions = pkgs.lib.mkDefault true;
+            codeactions = lib.mkDefault true;
           };
         };
       };
       undo = {
-        enable = pkgs.lib.mkDefault true;
+        enable = lib.mkDefault true;
       };
     };
 
@@ -134,7 +135,7 @@
       };
     };
   };
-  extraConfigLua = pkgs.lib.mkIf config.plugins.telescope.enable ''
+  extraConfigLua = lib.mkIf config.plugins.telescope.enable ''
     local telescope = require('telescope')
     telescope.setup{
         pickers = {
@@ -145,7 +146,7 @@
     }
   '';
 
-  keymaps = pkgs.lib.mkIf config.plugins.telescope.enable [
+  keymaps = lib.mkIf config.plugins.telescope.enable [
     /*
     =============================================
     =                  Telescope                =

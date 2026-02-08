@@ -1,15 +1,15 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   plugins.fidget = {
-    enable = pkgs.lib.mkDefault true;
+    enable = lib.mkDefault true;
     settings = {
-      logger = pkgs.lib.mkDefault {
+      logger = lib.mkDefault {
         level = "warn"; # “off”, “error”, “warn”, “info”, “debug”, “trace”
         float_precision = 0.01; # Limit the number of decimals displayed for floats
       };
-      progress = pkgs.lib.mkDefault {
+      progress = lib.mkDefault {
         suppress_on_insert = true; # Suppress new messages while in insert mode
       };
-      notification = pkgs.lib.mkDefault {
+      notification = lib.mkDefault {
         override_vim_notify = true;
 
         window = {

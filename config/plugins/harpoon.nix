@@ -1,19 +1,20 @@
 {
   pkgs,
+  lib,
   config,
   ...
 }: {
   plugins.harpoon = {
-    enable = pkgs.lib.mkDefault true;
-    enableTelescope = pkgs.lib.mkDefault true;
-    autoLoad = pkgs.lib.mkDefault true;
+    enable = lib.mkDefault true;
+    enableTelescope = lib.mkDefault true;
+    autoLoad = lib.mkDefault true;
     #TODO: this is hideous, need to check it actually works.
     settings.settings = {
       save_on_toggle = true;
       sync_on_ui_close = true;
     };
   };
-  keymaps = pkgs.lib.mkIf config.plugins.harpoon.enable [
+  keymaps = lib.mkIf config.plugins.harpoon.enable [
     {
       mode = "n";
       key = "<leader>ha";
@@ -51,7 +52,7 @@
       action.__raw = "function() require'harpoon':list():select(4) end";
     }
   ];
-  plugins.which-key.settings.spec = pkgs.lib.optionals config.plugins.which-key.enable [
+  plugins.which-key.settings.spec = lib.optionals config.plugins.which-key.enable [
     # Harpoon Configs
     {
       __unkeyed-1 = "<leader>h";

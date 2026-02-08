@@ -1,5 +1,5 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   plugins.ts-autotag = {
-    enable = pkgs.lib.mkDefault true;
+    enable = lib.mkDefault true;
   };
 }

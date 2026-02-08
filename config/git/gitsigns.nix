@@ -1,17 +1,18 @@
 {
   pkgs,
+  lib,
   config,
   ...
 }: {
   plugins.gitsigns = {
-    enable = pkgs.lib.mkDefault true;
+    enable = lib.mkDefault true;
     settings = {
-      trouble = pkgs.lib.mkDefault true;
-      current_line_blame = pkgs.lib.mkDefault false;
+      trouble = lib.mkDefault true;
+      current_line_blame = lib.mkDefault false;
     };
   };
 
-  keymaps = pkgs.lib.mkIf config.plugins.gitsigns.enable [
+  keymaps = lib.mkIf config.plugins.gitsigns.enable [
     /*
     =============================================
     =                Git (GitSigns)             =

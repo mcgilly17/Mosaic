@@ -1,13 +1,14 @@
 {
   pkgs,
+  lib,
   config,
   ...
 }: {
   plugins.inc-rename = {
-    enable = pkgs.lib.mkDefault true;
+    enable = lib.mkDefault true;
   };
 
-  keymaps = pkgs.lib.mkIf config.plugins.inc-rename.enable [
+  keymaps = lib.mkIf config.plugins.inc-rename.enable [
     {
       key = ",r";
       mode = ["n"];

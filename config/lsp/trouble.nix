@@ -1,16 +1,17 @@
 {
   pkgs,
+  lib,
   config,
   ...
 }: {
   plugins.trouble = {
-    enable = pkgs.lib.mkDefault true;
+    enable = lib.mkDefault true;
     settings = {
-      auto_close = pkgs.lib.mkDefault true;
+      auto_close = lib.mkDefault true;
     };
   };
 
-  plugins.which-key.settings.spec = pkgs.lib.optionals config.plugins.trouble.enable [
+  plugins.which-key.settings.spec = lib.optionals config.plugins.trouble.enable [
     {
       __unkeyed-1 = "<leader>T";
       mode = [
@@ -20,7 +21,7 @@
     }
   ];
 
-  keymaps = pkgs.lib.mkIf config.plugins.trouble.enable [
+  keymaps = lib.mkIf config.plugins.trouble.enable [
     /*
     =============================================
     =                    Trouble                =

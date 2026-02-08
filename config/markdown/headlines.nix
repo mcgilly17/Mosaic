@@ -1,7 +1,7 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   plugins.headlines = {
-    enable = pkgs.lib.mkDefault true;
-    settings = pkgs.lib.mkDefault {
+    enable = lib.mkDefault true;
+    settings = lib.mkDefault {
       markdown = {
         headline_highlights = [
           "Headline1"

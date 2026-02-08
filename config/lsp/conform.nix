@@ -1,13 +1,14 @@
 {
   pkgs,
+  lib,
   config,
   ...
 }: {
   plugins.conform-nvim = {
-    enable = pkgs.lib.mkDefault true;
+    enable = lib.mkDefault true;
     settings = {
-      notify_on_error = pkgs.lib.mkDefault true;
-      formatters_by_ft = pkgs.lib.mkDefault {
+      notify_on_error = lib.mkDefault true;
+      formatters_by_ft = lib.mkDefault {
         html = {
           __unkeyed-1 = "prettierd";
           __unkeyed-2 = "prettier";
@@ -53,7 +54,7 @@
     };
   };
 
-  extraConfigLua = pkgs.lib.mkIf config.plugins.conform-nvim.enable ''
+  extraConfigLua = lib.mkIf config.plugins.conform-nvim.enable ''
     local conform = require("conform")
     local notify = require("notify")
 
@@ -94,7 +95,7 @@
     })
   '';
 
-  keymaps = pkgs.lib.mkIf config.plugins.conform-nvim.enable [
+  keymaps = lib.mkIf config.plugins.conform-nvim.enable [
     /*
     =============================================
     =              Code (Conform)               =

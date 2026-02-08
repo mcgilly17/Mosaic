@@ -1,16 +1,17 @@
 {
   pkgs,
+  lib,
   config,
   ...
 }: {
   plugins.undotree = {
-    enable = pkgs.lib.mkDefault true;
+    enable = lib.mkDefault true;
     settings = {
-      autoOpenDiff = pkgs.lib.mkDefault true;
-      focusOnToggle = pkgs.lib.mkDefault true;
+      autoOpenDiff = lib.mkDefault true;
+      focusOnToggle = lib.mkDefault true;
     };
   };
-  keymaps = pkgs.lib.mkIf config.plugins.undotree.enable [
+  keymaps = lib.mkIf config.plugins.undotree.enable [
     {
       mode = "n";
       key = "<leader>ut";

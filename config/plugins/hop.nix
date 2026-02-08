@@ -1,13 +1,14 @@
 {
   pkgs,
+  lib,
   config,
   ...
 }: {
   plugins.hop = {
-    enable = pkgs.lib.mkDefault true;
+    enable = lib.mkDefault true;
   };
 
-  plugins.which-key.settings.spec = pkgs.lib.optionals config.plugins.hop.enable [
+  plugins.which-key.settings.spec = lib.optionals config.plugins.hop.enable [
     {
       __unkeyed-1 = "<leader>j";
       mode = [
@@ -18,7 +19,7 @@
     }
   ];
 
-  keymaps = pkgs.lib.mkIf config.plugins.hop.enable [
+  keymaps = lib.mkIf config.plugins.hop.enable [
     /*
     =============================================
     =                     Hop                   =

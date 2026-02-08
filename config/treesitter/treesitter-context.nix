@@ -1,5 +1,5 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   plugins.treesitter-context = {
-    enable = pkgs.lib.mkDefault true;
+    enable = lib.mkDefault true;
   };
 }

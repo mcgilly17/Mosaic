@@ -1,6 +1,6 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   plugins.ts-context-commentstring = {
-    enable = pkgs.lib.mkDefault true;
-    disableAutoInitialization = pkgs.lib.mkDefault false;
+    enable = lib.mkDefault true;
+    disableAutoInitialization = lib.mkDefault false;
   };
 }

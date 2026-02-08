@@ -1,16 +1,17 @@
 {
   pkgs,
+  lib,
   config,
   ...
 }: {
   plugins.markdown-preview = {
-    enable = pkgs.lib.mkDefault true;
+    enable = lib.mkDefault true;
     settings = {
-      theme = pkgs.lib.mkDefault "dark";
+      theme = lib.mkDefault "dark";
     };
   };
 
-  keymaps = pkgs.lib.mkIf config.plugins.markdown-preview.enable [
+  keymaps = lib.mkIf config.plugins.markdown-preview.enable [
     {
       mode = "n";
       key = "<leader>mp";

@@ -1,9 +1,9 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   plugins.lualine = {
-    enable = pkgs.lib.mkDefault true;
+    enable = lib.mkDefault true;
     settings = {
       options = {
-        globalstatus = pkgs.lib.mkDefault true;
+        globalstatus = lib.mkDefault true;
         disabled_filetypes = {
           statusline = ["alpha"];
         };

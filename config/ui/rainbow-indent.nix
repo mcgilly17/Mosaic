@@ -11,7 +11,7 @@ in {
 
   config = lib.mkIf cfg.enable {
     # install rainbow delimiters
-    plugins.rainbow-delimiters.enable = pkgs.lib.mkDefault true;
+    plugins.rainbow-delimiters.enable = lib.mkDefault true;
     #install rainbow-indent, a plugin that will recreate the vscode like indents
     extraPlugins = with pkgs; [
       (vimUtils.buildVimPlugin {

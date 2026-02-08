@@ -1,14 +1,15 @@
 {
   pkgs,
+  lib,
   config,
   ...
 }: {
   plugins = {
     bufferline = {
-      enable = pkgs.lib.mkDefault true;
+      enable = lib.mkDefault true;
       settings.options = {
-        separator_style = pkgs.lib.mkDefault "slant"; # “slant”, “padded_slant”, “slope”, “padded_slope”, “thick”, “thin”
-        offsets = pkgs.lib.mkDefault [
+        separator_style = lib.mkDefault "slant"; # “slant”, “padded_slant”, “slope”, “padded_slope”, “thick”, “thin”
+        offsets = lib.mkDefault [
           {
             filetype = "neo-tree";
             text = "Neo-tree";
@@ -20,7 +21,7 @@
     };
   };
 
-  keymaps = pkgs.lib.mkIf config.plugins.bufferline.enable [
+  keymaps = lib.mkIf config.plugins.bufferline.enable [
     /*
     =============================================
     =                  Bufferline               =

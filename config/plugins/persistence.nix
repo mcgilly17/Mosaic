@@ -1,12 +1,13 @@
 {
   pkgs,
+  lib,
   config,
   ...
 }: {
   plugins.persistence = {
-    enable = pkgs.lib.mkDefault true;
+    enable = lib.mkDefault true;
   };
-  keymaps = pkgs.lib.mkIf config.plugins.persistence.enable [
+  keymaps = lib.mkIf config.plugins.persistence.enable [
     {
       mode = "n";
       key = "<leader>qs";

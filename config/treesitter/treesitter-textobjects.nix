@@ -1,14 +1,15 @@
 {
   pkgs,
+  lib,
   config,
   ...
 }: {
   plugins.treesitter-textobjects = {
-    enable = pkgs.lib.mkDefault true;
+    enable = lib.mkDefault true;
     settings = {
       select = {
-        enable = pkgs.lib.mkDefault true;
-        lookahead = pkgs.lib.mkDefault true;
+        enable = lib.mkDefault true;
+        lookahead = lib.mkDefault true;
         keymaps = {
         # Assignments
         "a=" = {
@@ -114,8 +115,8 @@
         };
       };
       move = {
-        enable = pkgs.lib.mkDefault true;
-        set_jumps = pkgs.lib.mkDefault true; # whether to set jumps in the jumplist
+        enable = lib.mkDefault true;
+        set_jumps = lib.mkDefault true; # whether to set jumps in the jumplist
         goto_next_start = {
         "]f" = {
           query = "@call.outer";
@@ -214,7 +215,7 @@
         };
       };
       swap = {
-        enable = pkgs.lib.mkDefault true;
+        enable = lib.mkDefault true;
         swap_next = {
           "<leader>cSna" = "@parameter.inner"; # swap parameters/argument with next
           "<leader>cSn:" = "@property.outer"; # swap object property with next
@@ -229,7 +230,7 @@
     };
   };
 
-  plugins.which-key.settings.spec = pkgs.lib.optionals config.plugins.treesitter-textobjects.enable [
+  plugins.which-key.settings.spec = lib.optionals config.plugins.treesitter-textobjects.enable [
     # Code Configs
     {
       __unkeyed-1 = "<leader>cS";

@@ -1,8 +1,8 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   plugins.web-devicons.enable = true;
   plugins.mini = {
-    enable = pkgs.lib.mkDefault true;
-    modules = pkgs.lib.mkDefault {
+    enable = lib.mkDefault true;
+    modules = lib.mkDefault {
       comment = {
         options = {
           customCommentString = ''
