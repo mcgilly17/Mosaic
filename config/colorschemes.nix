@@ -34,6 +34,8 @@
               warnings = ["underline"];
             };
           };
+          flash = true;
+          grug_far = true;
           noice = true;
           notify = true;
           neotree = true;
