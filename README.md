@@ -26,10 +26,11 @@ experience for developers of all levels. Whether you're a seasoned pro or
 just starting, Mosaic adapts to your workflow, letting you focus on writing great
 code without the hassle of setup.
 
-This project draws inspiration from others, especially Redyf's
-[Neve](<https://github.com/redyf/Neve>), a phenomenal and meticulous configuration.
-Unlike, Redyf and other's, I'm not an expert in Nix, NixVim, or Neovim, so please
-don’t expect perfection—I'm just having fun.
+This project draws inspiration from others, especially Redyf’s
+[Neve](<https://github.com/redyf/Neve>) and khaneliman’s
+[khanelivim](<https://github.com/khaneliman/khanelivim>).
+I’m not an expert in Nix, NixVim, or Neovim, so please
+don’t expect perfection—I’m just having fun.
 <details>
     <summary>Screenshots</summary>
 
@@ -39,28 +40,32 @@ don’t expect perfection—I'm just having fun.
 
 ## Features
 
-- **Declarative Configuration:** Utilize Nix expressions for a clean
-and maintainable Neovim setup. Easily add, remove, or update plugins, LSP
-servers, and other components with precision.
+- **Declarative Configuration:** Nix expressions for a clean and maintainable
+Neovim setup. Easily add, remove, or update plugins, LSP servers, and other
+components.
 
-- **Immutable Environments:** Reproduce your Neovim setup effortlessly on
-any system with Nix installed, ensuring a uniform experience across all
-your development environments.
+- **Lazy Loading:** Plugins are lazy-loaded via [lz-n](https://github.com/nvim-neorocks/lz-n)
+for fast startup times.
 
-- **Extensible Configuration:** Mosaic is designed to be fully extensible, making
-it easy to integrate into your own Nix configurations. Extend or customize
-it to fit your unique workflow while maintaining the benefits of declarative
-configuration.
+- **Large File Handling:** Files over 1MB automatically have syntax highlighting,
+line numbers, and other heavy features disabled for smooth editing.
 
-- **Plugin Management:** Manage plugins seamlessly through Nixvim's declarative
-configuration, simplifying the process of adding and maintaining your toolset.
+- **Navigation:** [Flash.nvim](https://github.com/folke/flash.nvim) for fast
+jumping with labels on `f/F/t/T` motions and `<leader>j` shortcuts for
+character, line, and treesitter jumps.
 
-- **LSP Integration:** Enjoy built-in support for language servers and completion
-tools, making development smoother and more efficient.
+- **Search & Replace:** [grug-far](https://github.com/MagicDuck/grug-far.nvim)
+for project-wide and per-file search/replace with `<leader>rg/rw/rW`.
 
-- **Customization:** Tailor the setup to your preferences with additional plugins,
-  themes, and key mappings, allowing for a highly personalized development
-  environment.
+- **LSP Integration:** Built-in support for language servers with comprehensive
+diagnostics (severity-sorted, virtual text, custom signs), incremental
+rename (`<leader>rr`), and code actions.
+
+- **Extensible:** Designed to be brought into your own Nix configurations.
+Extend or customize plugins, keymaps, and settings while keeping
+declarative configuration benefits.
+
+- **Spell Check:** Automatically enabled for markdown and LaTeX files.
 
 ## Installation
 
@@ -230,17 +235,19 @@ home.packages = [
 
 Here is a quick description of some of the most important folders and files in Mosaic
 
-- **config/default.nix** The core file where all plugins are enabled.
+- **config/default.nix** The core file where all plugins are enabled and imports are managed.
 
-- **config/sets.nix** Add, remove, or adjust options and settings in this file.
+- **config/sets.nix** Add, remove, or adjust Neovim options and settings.
+
+- **config/autocommands.nix** Auto-commands for large file handling, spell check, and file reload.
 
 - **config/keymaps/*** Customize key mappings to boost productivity.
 
-- **config/lsp/*** Configure your preferred Language Servers here.
+- **config/lsp/*** Configure Language Servers, diagnostics, and formatting.
 
 - **config/completion/*** Manage completion and snippets.
 
-- **config/plugins/*** Additional plugins that arent sorted into folders
+- **config/plugins/*** Additional plugins (flash, grug-far, harpoon, telescope, etc.)
 
 ## Support
 
