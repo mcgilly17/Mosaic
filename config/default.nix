@@ -13,6 +13,7 @@
 
   imports = [
     # Base Configs
+    ./autocommands.nix
     ./colorschemes.nix
     ./completion
     ./git
