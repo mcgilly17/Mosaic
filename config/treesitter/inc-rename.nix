@@ -10,7 +10,7 @@
 
   keymaps = lib.mkIf config.plugins.inc-rename.enable [
     {
-      key = ",r";
+      key = "<leader>rr";
       mode = ["n"];
       action.__raw = ''
         function()
