@@ -1,3 +1,11 @@
+## [1.0.1](https://github.com/mcgilly17/Mosaic/compare/v1.0.0...v1.0.1) (2026-03-17)
+
+
+### Bug Fixes
+
+* **alpha:** pass hidden file options to telescope pickers ([7eb0e85](https://github.com/mcgilly17/Mosaic/commit/7eb0e859979b7d61dbd504030e8e2a9ea3f9331b))
+* **telescope:** show hidden files, fix keybindings, consolidate setup ([cc5ea7f](https://github.com/mcgilly17/Mosaic/commit/cc5ea7f53d1c4d007206cc5570b5dbe758ba0d53))
+
 # 1.0.0 (2026-03-14)
 
 
