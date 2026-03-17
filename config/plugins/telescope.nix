@@ -125,27 +125,30 @@
                   return require("telescope.actions").close(...)
                 end'';
             };
-            "<C-j>" = {
+            "<C-n>" = {
               __raw = "require('telescope.actions').move_selection_next";
             };
-            "<C-k>" = {
+            "<C-o>" = {
               __raw = "require('telescope.actions').move_selection_previous";
             };
           };
         };
       };
+      pickers = {
+        find_files = {
+          hidden = true;
+        };
+        live_grep = {
+          additional_args = [
+            "--hidden"
+          ];
+        };
+        colorscheme = {
+          enable_preview = true;
+        };
+      };
     };
   };
-  extraConfigLua = lib.mkIf config.plugins.telescope.enable ''
-    local telescope = require('telescope')
-    telescope.setup{
-        pickers = {
-          colorscheme = {
-            enable_preview = true
-          }
-        }
-    }
-  '';
 
   keymaps = lib.mkIf config.plugins.telescope.enable [
     (myLibs.mkNmap "<leader>fp" "<cmd>Telescope projects<CR>" "Projects")
