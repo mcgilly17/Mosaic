@@ -65,13 +65,13 @@
         type = "button";
         val = "  Grep Word";
         on_press = {
-          __raw = "function() require('telescope.builtin').live_grep() end";
+          __raw = "function() require('telescope.builtin').live_grep({ additional_args = { '--hidden' } }) end";
         };
         opts = {
           keymap = [
             "n"
             "w"
-            ":Telescope live_grep<CR>"
+            ":Telescope live_grep additional_args=--hidden<CR>"
             {
               noremap = true;
               silent = true;
@@ -92,13 +92,13 @@
         type = "button";
         val = "  Find File";
         on_press = {
-          __raw = "function() require('telescope.builtin').find_files() end";
+          __raw = "function() require('telescope.builtin').find_files({ hidden = true }) end";
         };
         opts = {
           keymap = [
             "n"
             "f"
-            ":Telescope find_files <CR>"
+            ":Telescope find_files hidden=true<CR>"
             {
               noremap = true;
               silent = true;
