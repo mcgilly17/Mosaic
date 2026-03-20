@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/mcgilly17/Mosaic/compare/v1.0.1...v1.0.2) (2026-03-20)
+
+
+### Bug Fixes
+
+* **rainbow-indent:** re-enable and fix rainbow indentation ([af7231c](https://github.com/mcgilly17/Mosaic/commit/af7231c6af5f215b77f31f7074683779eb57198e))
+
 ## [1.0.1](https://github.com/mcgilly17/Mosaic/compare/v1.0.0...v1.0.1) (2026-03-17)
 
 
