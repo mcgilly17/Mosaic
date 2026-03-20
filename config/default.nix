@@ -1,4 +1,4 @@
-{pkgs, lib, ...}: {
+{lib, ...}: {
   # Manually installed plugins are managed here
   plugins = {
     mosaic-testing.enable = lib.mkDefault false;
@@ -8,7 +8,7 @@
     stay-centered.enable = lib.mkDefault true;
     dressing.enable = lib.mkDefault true;
     nui.enable = lib.mkDefault true;
-    rainbow-indent.enable = lib.mkDefault false;
+    rainbow-indent.enable = lib.mkDefault true;
   };
 
   imports = [
