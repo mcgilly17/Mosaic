@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/mcgilly17/Mosaic/compare/v1.0.2...v1.1.0) (2026-03-27)
+
+
+### Features
+
+* **diffview:** add keybindings and Esc-to-close for all panels ([2095651](https://github.com/mcgilly17/Mosaic/commit/209565118635701b4f4eef1057972471a6fca1f5))
+
 ## [1.0.2](https://github.com/mcgilly17/Mosaic/compare/v1.0.1...v1.0.2) (2026-03-20)
 
 
