@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/mcgilly17/Mosaic/compare/v1.1.0...v1.1.1) (2026-04-13)
+
+
+### Bug Fixes
+
+* **ci:** add write permissions for flake update workflow ([3584c6c](https://github.com/mcgilly17/Mosaic/commit/3584c6cbaa274fe15a7a95f228816171daf52a46))
+
 # [1.1.0](https://github.com/mcgilly17/Mosaic/compare/v1.0.2...v1.1.0) (2026-03-27)
 
 
