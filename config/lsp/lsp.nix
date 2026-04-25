@@ -23,7 +23,10 @@
         };
         cssls.enable = lib.mkDefault true;
         html.enable = lib.mkDefault true;
-        htmx.enable = lib.mkDefault true;
+        htmx = {
+          enable = lib.mkDefault true;
+          filetypes = ["html" "htmldjango" "templ"];
+        };
         yamlls.enable = lib.mkDefault true;
         lua_ls = {
           enable = lib.mkDefault true;

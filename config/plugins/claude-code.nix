@@ -20,7 +20,7 @@
   extraConfigLua = ''
     -- Lazy load claudecode on first command
     vim.api.nvim_create_user_command("ClaudeCode", function()
-      require("lz.n").trigger_load("claudecode.nvim")
+      vim.cmd("packadd claudecode.nvim")
       require("claudecode").setup({
         terminal = {
           split_side = "right",
