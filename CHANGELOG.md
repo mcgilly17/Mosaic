@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/mcgilly17/Mosaic/compare/v1.1.1...v1.1.2) (2026-04-25)
+
+
+### Bug Fixes
+
+* **lsp:** restrict htmx to HTML filetypes and fix claudecode loading ([822bc80](https://github.com/mcgilly17/Mosaic/commit/822bc8021bd2e40c00ba3bb6f2ca1f75cd6c71b0))
+
 ## [1.1.1](https://github.com/mcgilly17/Mosaic/compare/v1.1.0...v1.1.1) (2026-04-13)
 
 
