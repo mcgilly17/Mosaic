@@ -46,6 +46,9 @@
       # Set completeopt to have a better completion experience
       completeopt = ["menuone" "noselect" "noinsert"]; # mostly just for cmp
 
+      # Auto-reload files changed outside neovim
+      autoread = true;
+
       # Enable persistent undo history
       swapfile = false;
       backup = false;

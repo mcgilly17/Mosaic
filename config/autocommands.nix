@@ -56,7 +56,7 @@
 
     # Reload files changed outside of neovim
     {
-      event = ["FocusGained" "TermClose" "TermLeave"];
+      event = ["FocusGained" "BufEnter" "CursorHold" "TermClose" "TermLeave"];
       group = "file_reload";
       command = "checktime";
     }
