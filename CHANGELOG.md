@@ -1,3 +1,11 @@
+# [1.2.0](https://github.com/mcgilly17/Mosaic/compare/v1.1.2...v1.2.0) (2026-07-30)
+
+
+### Features
+
+* **plugins:** replace avante with claude-preview.nvim ([9a839c6](https://github.com/mcgilly17/Mosaic/commit/9a839c65b12946e7e5b955fed520354653afffd3))
+* **reload:** auto-reload files changed outside neovim ([2788118](https://github.com/mcgilly17/Mosaic/commit/2788118caab6719a4fb95ba2474865632e3b241f))
+
 ## [1.1.2](https://github.com/mcgilly17/Mosaic/compare/v1.1.1...v1.1.2) (2026-04-25)
 
 
