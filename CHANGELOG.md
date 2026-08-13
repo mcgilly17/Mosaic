@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/mcgilly17/Mosaic/compare/v1.2.0...v1.2.1) (2026-08-13)
+
+
+### Bug Fixes
+
+* **autopair:** bump ultimate-autopair for nvim 0.11+ nil parser ([fceb031](https://github.com/mcgilly17/Mosaic/commit/fceb031538fbfae34b924850ed7c6ff4b6170d57))
+
 # [1.2.0](https://github.com/mcgilly17/Mosaic/compare/v1.1.2...v1.2.0) (2026-07-30)
 
 
