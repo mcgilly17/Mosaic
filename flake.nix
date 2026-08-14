@@ -3,10 +3,19 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nix-systems/default dropped x86_64-darwin in late 2025; pin the rev
+    # that still lists all four systems so nixvim exposes Intel darwin
+    # outputs (needed for glados, the Mac Pro 2019).
+    systems.url = "github:nix-systems/default/da67096a3b9bf56a91d16901293e51ba5b49a27e";
     nixvim = {
       url = "github:nix-community/nixvim";
-      # Removed follows to let nixvim use its own tested nixpkgs version
-      # inputs.nixpkgs.follows = "nixpkgs";
+      # Follows restored (previously removed to let nixvim use its own
+      # tested nixpkgs): nixvim's own pin is unstable, which now throws on
+      # x86_64-darwin. Following our nixpkgs lets the consuming flake
+      # (dots) redirect the whole editor stack to a branch that still
+      # supports Intel Macs.
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.systems.follows = "systems";
     };
     flake-parts.url = "github:hercules-ci/flake-parts";
   };
